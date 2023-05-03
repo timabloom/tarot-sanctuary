@@ -2,29 +2,34 @@
 	import "./styles.css";
 </script>
 
-<header>
+<nav>
 	<div>
-		<a id="header-logo" class="header-menu-buttons" href="/">Tarot Sanctuary</a>
+		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
 	</div>
 	<nav>
 		<ul>
-			<li><a class="header-menu-buttons" href="/">Home</a></li>
-			<li><a class="header-menu-buttons" href="/guidance">Guidance</a></li>
-			<li><a class="header-menu-buttons" href="/decks">Decks</a></li>
-			<li><a class="header-menu-buttons" href="/readings">Readings</a></li>
-			<li><a class="header-menu-buttons" href="/settings">Settings</a></li>
-			<li><a class="header-menu-buttons" href="/about">About</a></li>
+			<li><a class="nav-menu-buttons" href="/">Home</a></li>
+			<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
+			<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
+			<li><a class="nav-menu-buttons" href="/readings">Readings</a></li>
+			<li><a class="nav-menu-buttons" href="/settings">Settings</a></li>
+			<li><a class="nav-menu-buttons" href="/about">About</a></li>
 		</ul>
 	</nav>
-	<div class="header-theme-container">
-		<p class="header-menu-buttons">Dark Mode</p>
+	<div class="nav-theme-container">
+		<p class="nav-menu-buttons">Dark Mode</p>
 		<img alt="Dark mode toggle" src="/dark-mode-moon.svg" />
 	</div>
-</header>
+</nav>
 
 <div><slot /></div>
 
 <footer>
+	<div class="footer-main-container">
+		<a href="/about">
+			<img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
+		<p>Open and free for all</p>
+	</div>
 	<section class="footer-license-section">
 		<div class="footer-link-container">
 			<p>Copyright © 2023 Tarot Sanctuary</p>
@@ -72,7 +77,7 @@
 </footer>
 
 <style>
-	header {
+	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -80,17 +85,17 @@
 		padding: 0 3em 0 3em;
 		color: white;
 	}
-	#header-logo {
+	#nav-logo {
 		font-weight: normal;
 		font-size: 1.5rem;
 		font-family: "Cinzel", serif;
 	}
-	.header-menu-buttons {
+	.nav-menu-buttons {
 		text-decoration: none;
 		color: inherit;
 		font-size: 1.125rem;
 	}
-	.header-menu-buttons:hover {
+	.nav-menu-buttons:hover {
 		color: var(--secondary-accent-color);
 	}
 	ul {
@@ -103,20 +108,21 @@
 		list-style: none;
 		margin: 1em;
 	}
-	.header-theme-container {
+	.nav-theme-container {
 		display: flex;
 		align-items: center;
 		font-size: 1.125rem;
 		font-family: "Cinzel", serif;
+		padding-left: 3.8em;
 	}
-	.header-theme-container p:hover {
+	.nav-theme-container p:hover {
 		color: var(--secondary-accent-color);
 	}
-	.header-theme-container p:hover,
+	.nav-theme-container p:hover,
 	img:hover {
 		cursor: pointer;
 	}
-	.header-theme-container img {
+	.nav-theme-container img {
 		margin-left: 0.5em;
 		padding-bottom: 0.5em;
 	}
@@ -125,16 +131,23 @@
 		background-color: var(--main-bg-color-dark);
 		color: white;
 	}
+	.footer-main-container {
+		padding-top: 2.4em ;
+		padding-bottom: 0.8em;
+		margin: 0 3em 0 3em;
+		border-bottom: 2px solid var(--main-accent-color);
+		border-radius: 2px;
+	}
 	.footer-license-section {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		font-size: 0.875rem;
-		border-top: 2px solid var(--main-accent-color);
+		margin-left: 3.43em;
+		margin-right: 3.43em;
 	}
 	.footer-link-container {
 		display: flex;
 		align-items: center;
-		margin: 0 1em 0 1em;
 	}
 	.footer-link {
 		text-decoration: none;
@@ -151,6 +164,5 @@
 		filter: brightness(0) invert(1);
 		margin-left: 0.1em;
 		height: 24px;
-		padding-bottom: 0.5em;
 	}
 </style>
