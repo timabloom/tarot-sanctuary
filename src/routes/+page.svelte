@@ -90,7 +90,6 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 1em 3em 2em 3em;
-		width: 192px;
 		height: 392px;
 		background-color: var(--secondary-bg-color);
 		position: relative;
