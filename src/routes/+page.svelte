@@ -70,7 +70,7 @@
 		border-top: var(--main-accent-color) 2px solid;
 	}
 	header div {
-		max-width: 48em;
+		max-width: 50em;
 	}
 	.main-title {
 		text-align: center;
