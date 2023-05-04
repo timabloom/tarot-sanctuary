@@ -26,8 +26,7 @@
 
 <footer>
 	<div class="footer-main-container">
-		<a href="/about">
-			<img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
+		<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
 		<p>Open and free for all</p>
 	</div>
 	<section class="footer-license-section">
@@ -132,7 +131,7 @@
 		color: white;
 	}
 	.footer-main-container {
-		padding-top: 2.4em ;
+		padding-top: 2.4em;
 		padding-bottom: 0.8em;
 		margin: 0 3em 0 3em;
 		border-bottom: 2px solid var(--main-accent-color);
