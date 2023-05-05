@@ -1,15 +1,29 @@
 :root {
 	--main-bg-color-light: #3d262a;
 	--main-bg-color-dark: #2f2124;
-	--secondary-bg-color: #F8F5EF;
-	--main-accent-color: #B89662;
+	--secondary-bg-color: #f8f5ef;
+	--main-accent-color: #b89662;
 	--secondary-accent-color: #f2b632;
+
+	/* Dark mode variables */
+	--dark-main-bg-color-light: #1f1e1e;
+	--dark-main-bg-color-dark: #1f1e1e;
+	--dark-secondary-bg-color: #525252;
 }
 
 body {
 	font-family: "Open Sans", sans-serif;
 	margin: 0;
+	font-size: 1.125rem;
 }
+
+body.dark-mode {
+	--main-bg-color-light: var(--dark-main-bg-color-light);
+	--main-bg-color-dark: var(--dark-main-bg-color-dark);
+	--secondary-bg-color: var(--dark-secondary-bg-color);
+	background-color: #363434;
+	color: white;
+  }
 
 h1,
 h2,

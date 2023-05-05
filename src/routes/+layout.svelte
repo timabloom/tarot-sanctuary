@@ -20,6 +20,21 @@
 			menuPadding.set(1);
 		}
 	}
+	let darkMode = false;
+
+	const toggleDarkMode = (): void => {
+		darkMode = !darkMode;
+		localStorage.setItem("darkMode", JSON.stringify(darkMode));
+		document.body.classList.toggle("dark-mode");
+	};
+
+	onMount(() => {
+		const savedDarkMode: boolean = JSON.parse(localStorage.getItem("darkMode") || "false");
+		if (savedDarkMode) {
+			darkMode = savedDarkMode;
+			document.body.classList.add("dark-mode");
+		}
+	});
 </script>
 
 <div class="wrapper">
@@ -28,7 +43,7 @@
 			<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
 		</div>
 
-		<nav class="menu-container">
+		<nav class="nav-menu-container">
 			<ul style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
 				<li><a class="nav-menu-buttons" href="/">Home</a></li>
 				<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
@@ -40,9 +55,14 @@
 		</nav>
 
 		<div class="nav-theme-container">
-			<button class="nav-menu-buttons theme-toggle-button">Dark Mode</button>
-			<button class="nav-theme-img-container">
-				<img alt="Dark mode toggle" src="/dark-mode-moon.svg" /></button
+			<button class="nav-menu-buttons theme-toggle-button" on:click={toggleDarkMode}
+				>{!darkMode ? "Dark Mode" : "Light Mode"}</button
+			>
+			<button class="nav-theme-img-container" on:click={toggleDarkMode}>
+				<img
+					alt="Dark mode toggle"
+					src={!darkMode ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
+				/></button
 			>
 		</div>
 	</nav>
@@ -64,7 +84,7 @@
 				<p>Copyright © 2023 Tarot Sanctuary</p>
 			</div>
 			<div class="footer-link-container">
-				<p>
+				<p class="footer-text">
 					This work is licensed under a
 					<a
 						class="footer-link"
@@ -83,7 +103,7 @@
 				>
 			</div>
 			<div class="footer-link-container">
-				<p>
+				<p class="footer-text">
 					The source code for this website can be found on <a
 						class="footer-link"
 						target="_blank"
@@ -133,6 +153,9 @@
 		font-size: 1.5rem;
 		font-family: "Cinzel", serif;
 	}
+	.nav-menu-container {
+		padding: 0;
+	}
 	.nav-menu-buttons {
 		text-decoration: none;
 		color: inherit;
@@ -154,14 +177,10 @@
 	.nav-theme-container {
 		display: flex;
 		align-items: center;
-		padding-left: 3.8em;
+		padding-left: 1em;
 	}
 	img:hover {
 		cursor: pointer;
-	}
-	.nav-theme-container img {
-		margin-left: 0.5em;
-		padding-bottom: 0.5em;
 	}
 	.theme-toggle-button {
 		background: none;
@@ -169,6 +188,7 @@
 		font-size: 1.125rem;
 		font-family: "Cinzel", serif;
 		cursor: pointer;
+		min-width: 7em;
 	}
 	.nav-theme-img-container {
 		background: none;
@@ -208,8 +228,7 @@
 		display: flex;
 		justify-content: space-between;
 		font-size: 0.875rem;
-		margin-left: 3.43em;
-		margin-right: 3.43em;
+		margin: 0 4em;
 	}
 	.footer-link-container {
 		display: flex;
@@ -230,5 +249,20 @@
 		filter: brightness(0) invert(1);
 		margin-left: 0.1em;
 		height: 24px;
+	}
+	@media screen and (max-width: 1570px) {
+		.footer-license-section {
+			justify-content: flex-start;
+		}
+		.footer-text {
+			display: none;
+		}
+		.footer-cc-image {
+			margin-top: 0.3em;
+			margin-left: 0.5em;
+		}
+		.footer-github-image {
+			margin-left: 0.5em;
+		}
 	}
 </style>
