@@ -1,5 +1,31 @@
 <script lang="ts">
+	import { onDestroy } from "svelte";
 	import { page } from "$app/stores";
+	import { goto } from "$app/navigation";
+
+	let countdown: number = 5;
+
+	const timeoutId = setTimeout(() => {
+		for (let i = 5; i > -1; i--) {
+			setTimeout(() => {
+				countdown = i;
+			}, 1000);
+		}
+		goto("/");
+	}, 5000);
+
+	const countdownInterval = setInterval(() => {
+		if (countdown > 0) {
+			countdown--;
+		} else {
+			clearInterval(countdownInterval);
+		}
+	}, 1000);
+
+	onDestroy(() => {
+		clearInterval(countdownInterval);
+		clearTimeout(timeoutId);
+	});
 </script>
 
 <svelte:head>
@@ -7,7 +33,15 @@
 </svelte:head>
 
 {#if $page.error}
-	<h2>{$page.status}: {$page.error.message}</h2>
+	<div class="error-container">
+		<h2>{$page.status}: {$page.error.message}</h2>
+		<h2>Oops, something went wrong!</h2>
+		<p>Redirecting you to the home page in {countdown} seconds...</p>
+	</div>
 {/if}
 
-<style></style>
+<style>
+	.error-container {
+		text-align: center;
+	}
+</style>
