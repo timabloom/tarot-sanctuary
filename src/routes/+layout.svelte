@@ -2,80 +2,92 @@
 	import "./styles.css";
 </script>
 
-<nav>
-	<div>
-		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
-	</div>
+<div class="wrapper">
 	<nav>
-		<ul>
-			<li><a class="nav-menu-buttons" href="/">Home</a></li>
-			<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
-			<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
-			<li><a class="nav-menu-buttons" href="/readings">Readings</a></li>
-			<li><a class="nav-menu-buttons" href="/settings">Settings</a></li>
-			<li><a class="nav-menu-buttons" href="/about">About</a></li>
-		</ul>
+		<div>
+			<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a class="nav-menu-buttons" href="/">Home</a></li>
+				<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
+				<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
+				<li><a class="nav-menu-buttons" href="/readings">Readings</a></li>
+				<li><a class="nav-menu-buttons" href="/settings">Settings</a></li>
+				<li><a class="nav-menu-buttons" href="/about">About</a></li>
+			</ul>
+		</nav>
+		<div class="nav-theme-container">
+			<p class="nav-menu-buttons">Dark Mode</p>
+			<img alt="Dark mode toggle" src="/dark-mode-moon.svg" />
+		</div>
 	</nav>
-	<div class="nav-theme-container">
-		<p class="nav-menu-buttons">Dark Mode</p>
-		<img alt="Dark mode toggle" src="/dark-mode-moon.svg" />
-	</div>
-</nav>
 
-<div><slot /></div>
+	<div class="main-container"><slot /></div>
 
-<footer>
-	<div class="footer-main-container">
-		<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
-		<p>Open and free for all</p>
-	</div>
-	<section class="footer-license-section">
-		<div class="footer-link-container">
-			<p>Copyright © 2023 Tarot Sanctuary</p>
+	<footer>
+		<div class="footer-main-container">
+			<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
+			<p>Open and free for all</p>
 		</div>
-		<div class="footer-link-container">
-			<p>
-				This work is licensed under a
+		<section class="footer-license-section">
+			<div class="footer-link-container">
+				<p>Copyright © 2023 Tarot Sanctuary</p>
+			</div>
+			<div class="footer-link-container">
+				<p>
+					This work is licensed under a
+					<a
+						class="footer-link"
+						rel="license"
+						href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+						>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
+					>.
+				</p>
+				<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+					><img
+						class="footer-cc-image"
+						alt="Creative Commons License link"
+						style="border-width:0"
+						src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
+					/></a
+				>
+			</div>
+			<div class="footer-link-container">
+				<p>
+					The source code for this website can be found on <a
+						class="footer-link"
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/timabloom/tarot-sanctuary">GitHub</a
+					>.
+				</p>
 				<a
-					class="footer-link"
-					rel="license"
-					href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-					>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
-				>.
-			</p>
-			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-				><img
-					class="footer-cc-image"
-					alt="Creative Commons License link"
-					style="border-width:0"
-					src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
-				/></a
-			>
-		</div>
-		<div class="footer-link-container">
-			<p>
-				The source code for this website can be found on <a
-					class="footer-link"
 					target="_blank"
 					rel="noopener noreferrer"
-					href="https://github.com/timabloom/tarot-sanctuary">GitHub</a
-				>.
-			</p>
-			<a
-				target="_blank"
-				rel="noopener noreferrer"
-				href="https://github.com/timabloom/tarot-sanctuary"
-				><img
-					class="footer-github-image"
-					alt="Guthub project integration link"
-					src="/github-mark.svg"
-				/></a
-			>
-		</div>
-	</section>
-</footer>
+					href="https://github.com/timabloom/tarot-sanctuary"
+					><img
+						class="footer-github-image"
+						alt="Guthub project integration link"
+						src="/github-mark.svg"
+					/></a
+				>
+			</div>
+		</section>
+	</footer>
+</div>
 
 <style>
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+	.main-container {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
 	nav {
 		display: flex;
 		align-items: center;
