@@ -1,9 +1,24 @@
 <script lang="ts">
 	import "./styles.css";
 	import HamburgerMenu from "../lib/HamburgerMenu.svelte";
+	import { onMount } from "svelte";
+	import { writable } from "svelte/store";
 
-	function toggleThemeMode(): void {
-		console.log("toggleThemeMode");
+	onMount(() => {
+		window.addEventListener("scroll", updateMenuPadding);
+		return () => {
+			window.removeEventListener("scroll", updateMenuPadding);
+		};
+	});
+
+	const menuPadding = writable(1);
+
+	function updateMenuPadding() {
+		if (window.scrollY > 1) {
+			menuPadding.set(0);
+		} else {
+			menuPadding.set(1);
+		}
 	}
 </script>
 
@@ -14,7 +29,7 @@
 		</div>
 
 		<nav class="menu-container">
-			<ul>
+			<ul style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
 				<li><a class="nav-menu-buttons" href="/">Home</a></li>
 				<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
 				<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
@@ -41,7 +56,7 @@
 	<footer>
 		<div class="footer-main-container">
 			<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
-			<p>Open and free for all</p>
+			<p>A safe place to reinvent the Tarot</p>
 		</div>
 
 		<section class="footer-license-section">
@@ -130,7 +145,7 @@
 		display: flex;
 		justify-content: center;
 		margin: 0;
-		padding: 1em;
+		padding-left: 0;
 	}
 	li {
 		list-style: none;
@@ -169,7 +184,7 @@
 		color: white;
 		padding: 0;
 	}
-	@media screen and (max-width: 1300px) {
+	@media screen and (max-width: 1200px) {
 		.hamburger-menu {
 			display: block;
 		}

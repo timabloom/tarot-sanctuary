@@ -1,4 +1,24 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+	import { writable } from "svelte/store";
+
+	onMount(() => {
+		window.addEventListener("scroll", updateMenuPadding);
+		return () => {
+			window.removeEventListener("scroll", updateMenuPadding);
+		};
+	});
+
+	const menuPadding = writable(1.5);
+
+	function updateMenuPadding() {
+		if (window.scrollY > 1) {
+			menuPadding.set(0.5);
+		} else {
+			menuPadding.set(1.5);
+		}
+	}
+
 	let menuOpen = false;
 
 	function toggleMenu(): void {
@@ -19,7 +39,7 @@
 	}
 </script>
 
-<div class="nav-top">
+<div class="nav-top" style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
 	<div>
 		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
 	</div>
@@ -97,7 +117,8 @@
 	.nav-top {
 		display: flex;
 		justify-content: space-between;
-		padding: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
 	}
 	#nav-logo {
 		font-weight: normal;
@@ -112,7 +133,6 @@
 		color: var(--secondary-accent-color);
 	}
 	.nav-menu-toggle {
-		display: none;
 		padding: 1em;
 		cursor: pointer;
 		border: none;
@@ -163,14 +183,5 @@
 	}
 	.theme-toggle-button:hover {
 		color: var(--secondary-accent-color);
-	}
-	@media screen and (max-width: 1300px) {
-		.nav-menu-toggle {
-			display: block;
-		}
-
-		.nav-menu-items {
-			display: none;
-		}
 	}
 </style>
