@@ -38,7 +38,7 @@
 </script>
 
 <div class="wrapper">
-	<nav>
+	<div class="navbar-container">
 		<div>
 			<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
 		</div>
@@ -54,22 +54,22 @@
 			</ul>
 		</nav>
 
-		<div class="nav-theme-container">
+		<div class="theme-container">
 			<button class="nav-menu-buttons theme-toggle-button" on:click={toggleDarkMode}
 				>{!darkMode ? "Dark Mode" : "Light Mode"}</button
 			>
-			<button class="nav-theme-img-container" on:click={toggleDarkMode}>
+			<button class="theme-img-container" on:click={toggleDarkMode}>
 				<img
 					alt="Dark mode toggle"
 					src={!darkMode ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
 				/></button
 			>
 		</div>
-	</nav>
+	</div>
 
-	<nav class="hamburger-menu">
+	<div class="hamburger-menu">
 		<HamburgerMenu />
-	</nav>
+	</div>
 
 	<div class="main-container"><slot /></div>
 
@@ -132,12 +132,8 @@
 		flex-direction: column;
 		min-height: 100vh;
 	}
-	.main-container {
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-	}
-	nav {
+
+	.navbar-container {
 		position: sticky;
 		top: 0;
 		z-index: 1;
@@ -174,13 +170,10 @@
 		list-style: none;
 		margin: 1em;
 	}
-	.nav-theme-container {
+	.theme-container {
 		display: flex;
 		align-items: center;
 		padding-left: 1em;
-	}
-	img:hover {
-		cursor: pointer;
 	}
 	.theme-toggle-button {
 		background: none;
@@ -190,11 +183,15 @@
 		cursor: pointer;
 		min-width: 7em;
 	}
-	.nav-theme-img-container {
+	.theme-img-container {
 		background: none;
 		border: none;
 		cursor: pointer;
 	}
+	img:hover {
+		cursor: pointer;
+	}
+
 	.hamburger-menu {
 		display: none;
 		position: sticky;
@@ -208,9 +205,15 @@
 		.hamburger-menu {
 			display: block;
 		}
-		nav {
+		.navbar-container {
 			display: none;
 		}
+	}
+
+	.main-container {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
 	}
 
 	footer {
