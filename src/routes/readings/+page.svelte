@@ -32,7 +32,9 @@
 		{#each cards as card (card)}
 			<div class="card">
 				<img alt={card.name} src={card.image} />
-				<h2>{card.name !== "Marseille Card Back" ? card.name : ""}</h2>
+				<h2 style={card.name !== "Marseille Card Back" ? "" : "visibility: hidden"}>
+					{card.name}
+				</h2>
 			</div>
 		{/each}
 	</div>
