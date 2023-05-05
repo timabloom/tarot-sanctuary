@@ -18,44 +18,44 @@
 </header>
 
 <main>
-	<h2 class="main-title">The Three Well Known Delphic Maxims</h2>
-	<p class="main-subtitle">Inscribed at the entrance to the Temple of Apollo</p>
-	<div class="main-maxims-container">
-		<div class="main-maxim-container">
-			<h3 class="main-maxim">Know Thyself</h3>
-			<p class="main-card-name">The Hermit</p>
-			<div class="main-card-container">
-				<a class="main-read-more" href="/guidance">
+	<h2 class="title">The Three Well Known Delphic Maxims</h2>
+	<p class="subtitle">Inscribed at the entrance to the Temple of Apollo</p>
+	<div class="maxims-container">
+		<div class="maxim-container">
+			<h3 class="maxim">Know Thyself</h3>
+			<p class="card-name">The Hermit</p>
+			<div class="card-container">
+				<a class="read-more" href="/guidance">
 					<img alt="The Hermit tarot card" src="/marseille-deck/a09.jpg" /></a
 				>
 			</div>
-			<p><a class="main-read-more" href="/guidance">Read More</a></p>
+			<p><a class="read-more" href="/guidance">Read More</a></p>
 		</div>
-		<div class="main-maxim-container">
-			<h3 class="main-maxim">Nothing in Excess</h3>
-			<p class="main-card-name">Temperance</p>
-			<div class="main-card-container">
-				<a class="main-read-more" href="/guidance"
+		<div class="maxim-container">
+			<h3 class="maxim">Nothing in Excess</h3>
+			<p class="card-name">Temperance</p>
+			<div class="card-container">
+				<a class="read-more" href="/guidance"
 					><img alt="The Temperance tarot card" src="/marseille-deck/a14.jpg" /></a
 				>
 			</div>
-			<p><a class="main-read-more" href="/guidance">Read More</a></p>
+			<p><a class="read-more" href="/guidance">Read More</a></p>
 		</div>
-		<div class="main-maxim-container">
-			<h3 class="main-maxim">Surety Brings Ruin</h3>
-			<p class="main-card-name">The Tower</p>
-			<div class="main-card-container">
-				<a class="main-read-more" href="/guidance"
+		<div class="maxim-container">
+			<h3 class="maxim">Surety Brings Ruin</h3>
+			<p class="card-name">The Tower</p>
+			<div class="card-container">
+				<a class="read-more" href="/guidance"
 					><img alt="The Tower tarot card" src="/marseille-deck/a16.jpg" /></a
 				>
 			</div>
-			<p><a class="main-read-more" href="/guidance">Read More</a></p>
+			<p><a class="read-more" href="/guidance">Read More</a></p>
 		</div>
 	</div>
-	<div class="main-stairs-container">
-		<div class="main-step-1" />
-		<div class="main-step-2" />
-		<div class="main-step-3" />
+	<div class="stairs-container">
+		<div class="step-1" />
+		<div class="step-2" />
+		<div class="step-3" />
 	</div>
 </main>
 
@@ -72,20 +72,20 @@
 	header div {
 		max-width: 50em;
 	}
-	.main-title {
+	.title {
 		text-align: center;
 		margin-top: 1.6em;
 	}
-	.main-subtitle {
+	.subtitle {
 		text-align: center;
 		margin-bottom: 2.5em;
 	}
-	.main-maxims-container {
+	.maxims-container {
 		display: flex;
 		justify-content: space-evenly;
 		margin: 1.6em 25em 1.6em 25em;
 	}
-	.main-maxim-container {
+	.maxim-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -94,7 +94,7 @@
 		background-color: var(--secondary-bg-color);
 		position: relative;
 	}
-	.main-maxim-container::before {
+	.maxim-container::before {
 		content: "";
 		position: absolute;
 		top: 0;
@@ -103,15 +103,15 @@
 		border-top: var(--main-accent-color) 10px solid;
 		border-radius: 2px;
 	}
-	.main-maxim {
+	.maxim {
 		margin-top: 1.8em;
 		margin-bottom: 0;
 	}
-	.main-card-name {
+	.card-name {
 		margin-bottom: 0.3em;
 		margin-top: 0.3em;
 	}
-	.main-card-container {
+	.card-container {
 		width: 128px;
 		height: 384px;
 		overflow: hidden;
@@ -119,46 +119,46 @@
 		border: 2px solid black;
 	}
 
-	.main-card-container img {
+	.card-container img {
 		position: absolute;
 		top: -4%;
 		left: -6.1%;
 		transform: scale(0.49);
 		transform-origin: top left;
 	}
-	.main-read-more {
+	.read-more {
 		font-family: cinzel, serif;
 		font-size: 1.125rem;
 		text-decoration: none;
 		color: inherit;
 		text-decoration: underline;
 	}
-	.main-read-more:hover {
+	.read-more:hover {
 		color: var(--main-accent-color);
 	}
-	.main-stairs-container {
+	.stairs-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		margin-top: 8em;
 		margin-bottom: 4em;
 	}
-	.main-step-1,
-	.main-step-2,
-	.main-step-3 {
+	.step-1,
+	.step-2,
+	.step-3 {
 		background-color: var(--main-accent-color);
 	}
-	.main-step-1 {
+	.step-1 {
 		height: 3em;
 		width: 50em;
 		border-bottom: 1em solid #8b7148;
 	}
-	.main-step-2 {
+	.step-2 {
 		height: 4em;
 		width: 54em;
 		border-bottom: 1em solid #8b7148;
 	}
-	.main-step-3 {
+	.step-3 {
 		height: 5em;
 		width: 58em;
 	}
