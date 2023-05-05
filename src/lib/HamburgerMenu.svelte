@@ -47,7 +47,7 @@
 	<button class="nav-menu-toggle" on:click={toggleMenu} on:keypress={handleKeyPress} />
 </div>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div
+<nav
 	class="nav-menu-items"
 	on:click={closeModalClick}
 	style="display: {menuOpen ? 'block' : 'none'}"
@@ -111,7 +111,7 @@
 			</button>
 		</li>
 	</ul>
-</div>
+</nav>
 
 <style>
 	.nav-top {
