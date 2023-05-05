@@ -1,7 +1,7 @@
 <script></script>
 
 <svelte:head>
-	<title>Tarot Sanctuary - Open and free for all</title>
+	<title>Tarot Sanctuary - A safe place to reinvent the Tarot</title>
 </svelte:head>
 
 <header>
@@ -65,32 +65,43 @@
 		flex-direction: column;
 		align-items: center;
 		background-color: var(--main-bg-color-dark);
-		padding: 1.6em 30em 2.4em 30em;
+		padding: 1.6em 1em 2.4em 1em;
 		color: white;
 		border-top: var(--main-accent-color) 2px solid;
 	}
 	header div {
 		max-width: 50em;
+		padding: 0 1em;
 	}
+
 	.title {
 		text-align: center;
 		margin-top: 1.6em;
+		padding: 0 1em;
 	}
 	.subtitle {
 		text-align: center;
 		margin-bottom: 2.5em;
+		padding: 0 1em;
 	}
+
 	.maxims-container {
 		display: flex;
 		justify-content: space-evenly;
-		margin: 1.6em 25em 1.6em 25em;
+		flex-wrap: wrap;
+		gap: 3em;
+		padding: 0em 3em;
+		max-width: 80em;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.maxim-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding: 1em 3em 2em 3em;
-		height: 392px;
+		max-width: 220px;
+		height: 560px;
 		background-color: var(--secondary-bg-color);
 		position: relative;
 	}
@@ -106,14 +117,15 @@
 	.maxim {
 		margin-top: 1.8em;
 		margin-bottom: 0;
+		text-align: center;
 	}
 	.card-name {
-		margin-bottom: 0.3em;
-		margin-top: 0.3em;
+		margin-bottom: 0.5em;
+		margin-top: 0.5em;
 	}
 	.card-container {
-		width: 128px;
-		height: 384px;
+		width: 200px;
+		height: 378px;
 		overflow: hidden;
 		position: relative;
 		border: 2px solid black;
@@ -121,9 +133,9 @@
 
 	.card-container img {
 		position: absolute;
-		top: -4%;
-		left: -6.1%;
-		transform: scale(0.49);
+		top: -10%;
+		left: -6.3%;
+		transform: scale(0.8);
 		transform-origin: top left;
 	}
 	.read-more {
@@ -136,6 +148,7 @@
 	.read-more:hover {
 		color: var(--main-accent-color);
 	}
+	
 	.stairs-container {
 		display: flex;
 		flex-direction: column;
@@ -151,15 +164,26 @@
 	.step-1 {
 		height: 3em;
 		width: 50em;
-		border-bottom: 1em solid #8b7148;
+		border-bottom: 1em solid #4e4b475b;
 	}
 	.step-2 {
 		height: 4em;
 		width: 54em;
-		border-bottom: 1em solid #8b7148;
+		border-bottom: 1em solid #4e4b475b;
 	}
 	.step-3 {
 		height: 5em;
 		width: 58em;
+	}
+	@media screen and (max-width: 1200px) {
+		.step-1 {
+			width: 70%;
+		}
+		.step-2 {
+			width: 75%;
+		}
+		.step-3 {
+			width: 80%;
+		}
 	}
 </style>
