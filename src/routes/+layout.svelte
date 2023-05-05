@@ -1,5 +1,10 @@
 <script lang="ts">
 	import "./styles.css";
+	import HamburgerMenu from "../lib/HamburgerMenu.svelte";
+
+	function toggleThemeMode(): void {
+		console.log("toggleThemeMode");
+	}
 </script>
 
 <div class="wrapper">
@@ -7,7 +12,8 @@
 		<div>
 			<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
 		</div>
-		<nav>
+
+		<nav class="menu-container">
 			<ul>
 				<li><a class="nav-menu-buttons" href="/">Home</a></li>
 				<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
@@ -17,10 +23,17 @@
 				<li><a class="nav-menu-buttons" href="/about">About</a></li>
 			</ul>
 		</nav>
+
 		<div class="nav-theme-container">
-			<p class="nav-menu-buttons">Dark Mode</p>
-			<img alt="Dark mode toggle" src="/dark-mode-moon.svg" />
+			<button class="nav-menu-buttons theme-toggle-button">Dark Mode</button>
+			<button class="nav-theme-img-container">
+				<img alt="Dark mode toggle" src="/dark-mode-moon.svg" /></button
+			>
 		</div>
+	</nav>
+
+	<nav class="hamburger-menu">
+		<HamburgerMenu />
 	</nav>
 
 	<div class="main-container"><slot /></div>
@@ -30,6 +43,7 @@
 			<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
 			<p>Open and free for all</p>
 		</div>
+
 		<section class="footer-license-section">
 			<div class="footer-link-container">
 				<p>Copyright © 2023 Tarot Sanctuary</p>
@@ -89,6 +103,9 @@
 		flex-grow: 1;
 	}
 	nav {
+		position: sticky;
+		top: 0;
+		z-index: 1;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -122,20 +139,43 @@
 	.nav-theme-container {
 		display: flex;
 		align-items: center;
-		font-size: 1.125rem;
-		font-family: "Cinzel", serif;
 		padding-left: 3.8em;
 	}
-	.nav-theme-container p:hover {
-		color: var(--secondary-accent-color);
-	}
-	.nav-theme-container p:hover,
 	img:hover {
 		cursor: pointer;
 	}
 	.nav-theme-container img {
 		margin-left: 0.5em;
 		padding-bottom: 0.5em;
+	}
+	.theme-toggle-button {
+		background: none;
+		border: none;
+		font-size: 1.125rem;
+		font-family: "Cinzel", serif;
+		cursor: pointer;
+	}
+	.nav-theme-img-container {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+	.hamburger-menu {
+		display: none;
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		background-color: var(--main-bg-color-light);
+		color: white;
+		padding: 0;
+	}
+	@media screen and (max-width: 1300px) {
+		.hamburger-menu {
+			display: block;
+		}
+		nav {
+			display: none;
+		}
 	}
 
 	footer {
