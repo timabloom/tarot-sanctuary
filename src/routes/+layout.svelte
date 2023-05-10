@@ -34,6 +34,8 @@
 			darkMode = savedDarkMode;
 			document.body.classList.add("dark-mode");
 		}
+
+		document.documentElement.style.setProperty("--root-hidden", "none");
 	});
 </script>
 

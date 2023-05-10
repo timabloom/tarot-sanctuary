@@ -9,6 +9,12 @@
 	--dark-main-bg-color-light: #1f1e1e;
 	--dark-main-bg-color-dark: #1f1e1e;
 	--dark-secondary-bg-color: #525252;
+
+	--root-hidden: hidden;
+}
+
+html {
+	visibility: var(--root-hidden);
 }
 
 body {
@@ -23,7 +29,7 @@ body.dark-mode {
 	--secondary-bg-color: var(--dark-secondary-bg-color);
 	background-color: #363434;
 	color: white;
-  }
+}
 
 h1,
 h2,
