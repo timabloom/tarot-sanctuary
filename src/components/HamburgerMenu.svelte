@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { writable } from "svelte/store";
+	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore.js";
+
+	onMount(() => {
+		initializeDarkMode();
+	});
 
 	onMount(() => {
 		window.addEventListener("scroll", updateMenuPadding);
@@ -104,10 +109,11 @@
 		<li>
 			<button
 				class="theme-toggle-button"
+				on:click={toggleDarkMode}
 				on:click={closeModalClick}
 				on:keypress={closeModalKeyPress}
 			>
-				Dark Mode
+				{!$darkModeStore ? "Dark Mode" : "Light Mode"}
 			</button>
 		</li>
 	</ul>
@@ -144,6 +150,9 @@
 	.nav-menu-items {
 		display: flex;
 		flex-direction: column;
+		z-index: 1;
+		position: absolute;
+		width: 100%;
 		background: var(--main-bg-color-dark);
 		border-top: var(--main-accent-color) 2px solid;
 	}

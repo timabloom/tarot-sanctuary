@@ -1,8 +1,13 @@
 <script lang="ts">
 	import "./styles.css";
-	import HamburgerMenu from "../lib/HamburgerMenu.svelte";
+	import HamburgerMenu from "../components/HamburgerMenu.svelte";
 	import { onMount } from "svelte";
 	import { writable } from "svelte/store";
+	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore";
+
+	onMount(() => {
+		initializeDarkMode();
+	});
 
 	onMount(() => {
 		window.addEventListener("scroll", updateMenuPadding);
@@ -20,23 +25,6 @@
 			menuPadding.set(1);
 		}
 	}
-	let darkMode = false;
-
-	const toggleDarkMode = (): void => {
-		darkMode = !darkMode;
-		localStorage.setItem("darkMode", JSON.stringify(darkMode));
-		document.body.classList.toggle("dark-mode");
-	};
-
-	onMount(() => {
-		const savedDarkMode: boolean = JSON.parse(localStorage.getItem("darkMode") || "false");
-		if (savedDarkMode) {
-			darkMode = savedDarkMode;
-			document.body.classList.add("dark-mode");
-		}
-
-		document.documentElement.style.setProperty("--root-hidden", "none");
-	});
 </script>
 
 <div class="wrapper">
@@ -58,12 +46,12 @@
 
 		<div class="theme-container">
 			<button class="nav-menu-buttons theme-toggle-button" on:click={toggleDarkMode}
-				>{!darkMode ? "Dark Mode" : "Light Mode"}</button
+				>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
 			>
 			<button class="theme-img-container" on:click={toggleDarkMode}>
 				<img
-					alt="Dark mode toggle"
-					src={!darkMode ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
+					alt="Website theme toggle"
+					src={!$darkModeStore ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
 				/></button
 			>
 		</div>
