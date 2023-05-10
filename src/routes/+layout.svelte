@@ -126,9 +126,9 @@
 	.mozilla-navbar-background {
 		position: absolute;
 		top: 0;
-		z-index: 5;
+		z-index: 1;
 		width: 100%;
-		height: 20px;
+		height: 30px;
 		background-color: var(--main-bg-color-light);
 	}
 	.wrapper {
@@ -140,7 +140,7 @@
 	.navbar-container {
 		position: sticky;
 		top: 0;
-		z-index: 1;
+		z-index: 2;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -205,7 +205,7 @@
 		display: none;
 		position: sticky;
 		top: 0;
-		z-index: 1;
+		z-index: 2;
 		background-color: var(--main-bg-color-light);
 		color: #f1f1f1;
 		padding: 0;

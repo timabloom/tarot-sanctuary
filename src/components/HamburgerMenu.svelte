@@ -191,7 +191,7 @@
 	.nav-menu-items {
 		display: flex;
 		flex-direction: column;
-		z-index: 1;
+		z-index: 2;
 		position: absolute;
 		width: 100%;
 		background: var(--main-bg-color-dark);
