@@ -16,13 +16,16 @@
 		};
 	});
 
-	const menuPadding = writable(1);
+	const menuPadding = writable(1.2);
+	const imgWidth = writable(4.5);
 
 	function updateMenuPadding() {
 		if (window.scrollY > 1) {
 			menuPadding.set(0);
+			imgWidth.set(3);
 		} else {
-			menuPadding.set(1);
+			menuPadding.set(1.2);
+			imgWidth.set(4.5);
 		}
 	}
 </script>
@@ -50,6 +53,7 @@
 			>
 			<button class="theme-img-container" on:click={toggleDarkMode}>
 				<img
+					style="width: {$imgWidth}em;"
 					alt="Website theme toggle"
 					src={!$darkModeStore ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
 				/></button
@@ -172,6 +176,11 @@
 		font-family: "Cinzel", serif;
 		cursor: pointer;
 		min-width: 7em;
+	}
+	.theme-img-container {
+		background: none;
+		border: none;
+		cursor: pointer;
 	}
 	.theme-img-container {
 		background: none;

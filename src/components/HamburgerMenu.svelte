@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { get, writable } from "svelte/store";
+	import { writable } from "svelte/store";
 	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore.js";
 
 	onMount(() => {
@@ -18,7 +18,7 @@
 
 	function updateMenuPadding() {
 		if (window.scrollY > 1) {
-			menuPadding.set(0.5);
+			menuPadding.set(0.3);
 		} else {
 			menuPadding.set(1.5);
 		}
@@ -65,9 +65,9 @@
 		on:click={toggleMenu}
 		on:keypress={handleKeyPress}
 	>
-		<div class="bar1" class:bar1T />
-		<div class="bar2" class:bar2T />
-		<div class="bar3" class:bar3T />
+		<div class="bar bar1" class:bar1T />
+		<div class="bar bar2" class:bar2T />
+		<div class="bar bar3" class:bar3T />
 	</button>
 </div>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -167,14 +167,15 @@
 		background: none;
 		cursor: pointer;
 	}
-	.bar1,
-	.bar2,
-	.bar3 {
+	.bar {
 		width: 40px;
 		height: 2px;
 		background-color: #ffffff;
 		margin: 10px 0;
 		transition: 0.4s;
+	}
+	.hamburger-menu-toggle:hover > .bar {
+		background-color: var(--secondary-accent-color);
 	}
 	.bar1T {
 		transform: translateY(12px) rotate(-45deg);
