@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { writable } from "svelte/store";
+	import { get, writable } from "svelte/store";
 	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore.js";
 
 	onMount(() => {
@@ -42,6 +42,16 @@
 			menuOpen = false;
 		}
 	}
+
+	let bar1T = false;
+	let bar2T = false;
+	let bar3T = false;
+
+	function barTransform() {
+		bar1T = !bar1T;
+		bar2T = !bar2T;
+		bar3T = !bar3T;
+	}
 </script>
 
 <div class="nav-top" style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
@@ -49,11 +59,21 @@
 		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
 	</div>
 
-	<button class="nav-menu-toggle" on:click={toggleMenu} on:keypress={handleKeyPress} />
+	<button
+		class="hamburger-menu-toggle"
+		on:click={barTransform}
+		on:click={toggleMenu}
+		on:keypress={handleKeyPress}
+	>
+		<div class="bar1" class:bar1T />
+		<div class="bar2" class:bar2T />
+		<div class="bar3" class:bar3T />
+	</button>
 </div>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <nav
 	class="nav-menu-items"
+	on:click={barTransform}
 	on:click={closeModalClick}
 	style="display: {menuOpen ? 'block' : 'none'}"
 >
@@ -123,6 +143,7 @@
 	.nav-top {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding-left: 1em;
 		padding-right: 1em;
 	}
@@ -138,15 +159,34 @@
 	.nav-menu-buttons:hover {
 		color: var(--secondary-accent-color);
 	}
-	.nav-menu-toggle {
-		padding: 1em;
-		cursor: pointer;
+
+	.hamburger-menu-toggle {
 		border: none;
-		border-radius: 5%;
+		margin: 0;
+		padding: 0;
+		background: none;
+		cursor: pointer;
 	}
-	.nav-menu-toggle:hover {
-		background: var(--secondary-accent-color);
+	.bar1,
+	.bar2,
+	.bar3 {
+		width: 40px;
+		height: 2px;
+		background-color: #ffffff;
+		margin: 10px 0;
+		transition: 0.4s;
 	}
+	.bar1T {
+		transform: translateY(12px) rotate(-45deg);
+	}
+	.bar2T {
+		transform: scaleX(0);
+		opacity: 0;
+	}
+	.bar3T {
+		transform: translateY(-12px) rotate(45deg);
+	}
+
 	.nav-menu-items {
 		display: flex;
 		flex-direction: column;
