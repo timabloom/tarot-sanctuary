@@ -30,6 +30,8 @@
 	}
 </script>
 
+<div class="mozilla-navbar-background" />
+
 <div class="wrapper">
 	<div class="navbar-container">
 		<div>
@@ -121,6 +123,14 @@
 </div>
 
 <style>
+	.mozilla-navbar-background {
+		position: absolute;
+		top: 0;
+		z-index: 5;
+		width: 100%;
+		height: 20px;
+		background-color: var(--main-bg-color-light);
+	}
 	.wrapper {
 		display: flex;
 		flex-direction: column;
@@ -136,7 +146,7 @@
 		justify-content: space-between;
 		background-color: var(--main-bg-color-light);
 		padding: 0 3em 0 3em;
-		color: white;
+		color: #f1f1f1;
 	}
 	#nav-logo {
 		font-weight: normal;
@@ -197,7 +207,7 @@
 		top: 0;
 		z-index: 1;
 		background-color: var(--main-bg-color-light);
-		color: white;
+		color: #f1f1f1;
 		padding: 0;
 	}
 	@media screen and (max-width: 1200px) {
@@ -217,7 +227,7 @@
 
 	footer {
 		background-color: var(--main-bg-color-dark);
-		color: white;
+		color: #f1f1f1;
 	}
 	.footer-main-container {
 		padding-top: 2.4em;

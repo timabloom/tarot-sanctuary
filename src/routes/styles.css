@@ -28,7 +28,7 @@ body.dark-mode {
 	--main-bg-color-dark: var(--dark-main-bg-color-dark);
 	--secondary-bg-color: var(--dark-secondary-bg-color);
 	background-color: #363434;
-	color: white;
+	color: #f1f1f1;
 }
 
 h1,

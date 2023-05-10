@@ -66,7 +66,7 @@
 		align-items: center;
 		background-color: var(--main-bg-color-dark);
 		padding: 1.6em 1em 2.4em 1em;
-		color: white;
+		color: #f1f1f1;
 		border-top: var(--main-accent-color) 2px solid;
 	}
 	header div {
@@ -148,7 +148,7 @@
 	.read-more:hover {
 		color: var(--main-accent-color);
 	}
-	
+
 	.stairs-container {
 		display: flex;
 		flex-direction: column;
