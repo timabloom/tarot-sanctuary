@@ -80,10 +80,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		padding: 1em 3em 0 3em;
+		margin-top: 1em;
 		gap: 1em;
 	}
 	.image-container {
+		margin: 0 1em;
 		height: 570px; /* Change to suit your needs */
 		width: 300px;
 	}

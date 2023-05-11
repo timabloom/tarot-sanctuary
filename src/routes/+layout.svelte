@@ -142,7 +142,7 @@
 		align-items: center;
 		justify-content: space-between;
 		background-color: var(--main-bg-color-light);
-		padding: 0 3em 0 3em;
+		padding: 0 3em;
 		color: #f1f1f1;
 	}
 	#nav-logo {
