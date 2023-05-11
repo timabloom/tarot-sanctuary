@@ -1,9 +1,11 @@
 <script lang="ts">
 	import "./styles.css";
-	import HamburgerMenu from "../components/HamburgerMenu.svelte";
 	import { onMount } from "svelte";
 	import { writable } from "svelte/store";
 	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore";
+
+	// import components
+	import HamburgerMenu from "../components/HamburgerMenu.svelte";
 
 	onMount(() => {
 		initializeDarkMode();
@@ -32,42 +34,42 @@
 
 <div class="mozilla-navbar-background" />
 
+<div class="navbar-container">
+	<div>
+		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
+	</div>
+
+	<nav class="nav-menu-container">
+		<ul style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
+			<li><a class="nav-menu-buttons" href="/">Home</a></li>
+			<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
+			<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
+			<li><a class="nav-menu-buttons" href="/readings">Readings</a></li>
+			<li><a class="nav-menu-buttons" href="/settings">Settings</a></li>
+			<li><a class="nav-menu-buttons" href="/about">About</a></li>
+		</ul>
+	</nav>
+
+	<div class="theme-container">
+		<button class="nav-menu-buttons theme-toggle-button" on:click={toggleDarkMode}
+			>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
+		>
+		<button class="theme-img-container" on:click={toggleDarkMode}>
+			<img
+				style="width: {$imgWidth}em;"
+				alt="Website theme toggle"
+				src={!$darkModeStore ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
+			/></button
+		>
+	</div>
+</div>
+
+<div class="hamburger-menu">
+	<HamburgerMenu />
+</div>
+
 <div class="wrapper">
-	<div class="navbar-container">
-		<div>
-			<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
-		</div>
-
-		<nav class="nav-menu-container">
-			<ul style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
-				<li><a class="nav-menu-buttons" href="/">Home</a></li>
-				<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
-				<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
-				<li><a class="nav-menu-buttons" href="/readings">Readings</a></li>
-				<li><a class="nav-menu-buttons" href="/settings">Settings</a></li>
-				<li><a class="nav-menu-buttons" href="/about">About</a></li>
-			</ul>
-		</nav>
-
-		<div class="theme-container">
-			<button class="nav-menu-buttons theme-toggle-button" on:click={toggleDarkMode}
-				>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
-			>
-			<button class="theme-img-container" on:click={toggleDarkMode}>
-				<img
-					style="width: {$imgWidth}em;"
-					alt="Website theme toggle"
-					src={!$darkModeStore ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
-				/></button
-			>
-		</div>
-	</div>
-
-	<div class="hamburger-menu">
-		<HamburgerMenu />
-	</div>
-
-	<div class="main-container"><slot /></div>
+	<slot />
 
 	<footer>
 		<div class="footer-main-container">
@@ -130,11 +132,6 @@
 		width: 100%;
 		height: 30px;
 		background-color: var(--main-bg-color-light);
-	}
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
 	}
 
 	.navbar-container {
@@ -219,10 +216,10 @@
 		}
 	}
 
-	.main-container {
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
+	.wrapper {
+		display: grid;
+		grid-template-rows: 1fr auto;
+		min-height: 100vh;
 	}
 
 	footer {

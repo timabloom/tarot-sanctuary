@@ -2,13 +2,30 @@
 	import { randomizeSpread } from "../../lib/randomize-card-functions";
 	import { marseilleDeck, marseilleCardBack } from "../../lib/marseille-deck";
 
+	// import decks
 	import type { MarseilleDeck } from "../../types/decks";
 
-	let spread: number = 0;
+	let spread = 1;
 	let cards: MarseilleDeck[] = marseilleCardBack;
 
 	function changeSpread(newSpread: number): void {
 		spread = newSpread;
+		if (newSpread === 1) {
+			cards = marseilleCardBack;
+		} else if (newSpread === 3) {
+			cards = [...marseilleCardBack];
+			for (let i = 0; i < 2; i++) {
+				cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
+			}
+		} else if (newSpread === 5) {
+			cards = [...marseilleCardBack];
+			for (let i = 0; i < 4; i++) {
+				cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
+			}
+		}
+	}
+
+	function drawCards(): void {
 		cards = randomizeSpread(spread, marseilleDeck);
 	}
 </script>
@@ -22,7 +39,7 @@
 </header>
 
 <main>
-	<div>
+	<div class="spread-container">
 		<button on:click={() => changeSpread(1)}>Single Card</button>
 		<button on:click={() => changeSpread(3)}>Three Cards</button>
 		<button on:click={() => changeSpread(5)}>Five Cards</button>
@@ -30,14 +47,17 @@
 
 	<div class="cards-container">
 		{#each cards as card (card)}
-			<div class="card">
-				<img alt={card.name} src={card.image} />
-				<h2 style={card.name !== "Marseille Card Back" ? "" : "visibility: hidden"}>
-					{card.name}
+			<div>
+				<div class="image-container">
+					<img alt={card.name} src={card.image} />
+				</div>
+				<h2>
+					{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
 				</h2>
 			</div>
 		{/each}
 	</div>
+	<button on:click={() => drawCards()}>{spread === 1 ? "Draw Card" : "Draw Cards"}</button>
 </main>
 
 <style>
@@ -46,18 +66,28 @@
 	}
 	main {
 		text-align: center;
+		margin-bottom: 3em;
+	}
+	.spread-container {
+		display: flex;
+		justify-content: center;
+		gap: 0.5em;
+	}
+	.spread-container button {
+		width: 7em;
 	}
 	.cards-container {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		padding: 1em 3em 2em 3em;
+		padding: 1em 3em 0 3em;
 		gap: 1em;
 	}
-	.card {
-		text-align: center;
+	.image-container {
+		height: 570px; /* Change to suit your needs */
+		width: 300px;
 	}
-	.card h2 {
+	h2 {
 		margin-top: 0.5em;
 	}
 </style>
