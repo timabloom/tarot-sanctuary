@@ -1,6 +1,6 @@
-import type { MarseilleDeck } from "../types/decks";
+import type { Cards } from "../types/decks";
 
-export const marseilleDeck: MarseilleDeck[] = [
+export const marseilleDeck: Cards[] = [
 	{ name: "The Conjurer", image: "./marseille-deck/a01.jpg" },
 	{ name: "The Popess", image: "./marseille-deck/a02.jpg" },
 	{ name: "The Empress", image: "./marseille-deck/a03.jpg" },
@@ -81,6 +81,6 @@ export const marseilleDeck: MarseilleDeck[] = [
 	{ name: "King of Swords", image: "./marseille-deck/e14.jpg" }
 ];
 
-export const marseilleCardBack: MarseilleDeck[] = [
+export const marseilleCardBack: Cards[] = [
 	{ id: 1, name: "Marseille Card Back", image: "./marseille-deck/z00.jpg" }
 ];

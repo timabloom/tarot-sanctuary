@@ -3,10 +3,10 @@
 	import { marseilleDeck, marseilleCardBack } from "../../lib/marseille-deck";
 
 	// import decks
-	import type { MarseilleDeck } from "../../types/decks";
+	import type { Cards } from "../../types/decks";
 
 	let spread = 1;
-	let cards: MarseilleDeck[] = marseilleCardBack;
+	let cards: Cards[] = marseilleCardBack;
 
 	function changeSpread(newSpread: number): void {
 		spread = newSpread;
@@ -85,7 +85,7 @@
 	}
 	.image-container {
 		margin: 0 1em;
-		height: 570px; /* Change to suit your needs */
+		height: 570px;
 		width: 300px;
 	}
 	h2 {
