@@ -1,4 +1,4 @@
-import type { Cards } from "../types/decks";
+import type { Cards } from "../types/cards";
 
 export const marseilleDeck: Cards[] = [
 	{ name: "The Conjurer", image: "./marseille-deck/a01.jpg" },
