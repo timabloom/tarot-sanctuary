@@ -74,7 +74,7 @@
 	<footer>
 		<div class="footer-main-container">
 			<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
-			<p>A safe place to reinvent the Tarot</p>
+			<p>A safe space to explore the Tarot</p>
 		</div>
 
 		<section class="footer-license-section">
