@@ -1,7 +1,6 @@
 <script lang="ts">
 	import "./styles.css";
 	import { onMount } from "svelte";
-	import { writable } from "svelte/store";
 	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore";
 
 	// import components
@@ -18,16 +17,16 @@
 		};
 	});
 
-	const menuPadding = writable(1.2);
-	const imgWidth = writable(4.5);
+	let menuPadding = 1.2;
+	let imgWidth = 4.5;
 
 	function updateMenuPadding() {
 		if (window.scrollY > 1) {
-			menuPadding.set(0);
-			imgWidth.set(3);
+			menuPadding = 0;
+			imgWidth = 3;
 		} else {
-			menuPadding.set(1.2);
-			imgWidth.set(4.5);
+			menuPadding = 1.2;
+			imgWidth = 4.5;
 		}
 	}
 </script>
@@ -40,7 +39,7 @@
 	</div>
 
 	<nav class="nav-menu-container">
-		<ul style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
+		<ul style="padding-top: {menuPadding}em; padding-bottom: {menuPadding}em;">
 			<li><a class="nav-menu-buttons" href="/">Home</a></li>
 			<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
 			<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
@@ -56,7 +55,7 @@
 		>
 		<button class="theme-img-container" on:click={toggleDarkMode}>
 			<img
-				style="width: {$imgWidth}em;"
+				style="width: {imgWidth}em;"
 				alt="Website theme toggle"
 				src={!$darkModeStore ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
 			/></button
