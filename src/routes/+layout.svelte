@@ -37,7 +37,7 @@
 
 <div class="navbar-container">
 	<div>
-		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
+		<a class="nav-logo nav-menu-buttons" href="/">Tarot Sanctuary</a>
 	</div>
 
 	<nav class="nav-menu-container">
@@ -146,7 +146,7 @@
 		padding: 0 3em;
 		color: #f1f1f1;
 	}
-	#nav-logo {
+	.nav-logo {
 		font-weight: normal;
 		font-size: 1.5rem;
 		font-family: "Cinzel", serif;
