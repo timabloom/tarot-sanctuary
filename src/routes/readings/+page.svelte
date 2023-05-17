@@ -1,4 +1,5 @@
 <script lang="ts">
+	// import functions
 	import { randomizeSpread } from "../../lib/randomize-card-functions";
 
 	// import decks

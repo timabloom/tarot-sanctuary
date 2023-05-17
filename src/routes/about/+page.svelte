@@ -49,6 +49,7 @@
 	}
 
 	h1 {
+		margin-top: 1.5em;
 		margin-bottom: 1em;
 	}
 
@@ -56,7 +57,9 @@
 		margin-top: 2em;
 		margin-bottom: 1em;
 	}
-
+	li {
+		margin-bottom: 1em;
+	}
 	p {
 		margin: 2em 0;
 	}

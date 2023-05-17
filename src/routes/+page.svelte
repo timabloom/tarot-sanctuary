@@ -105,7 +105,7 @@
 		background-color: var(--secondary-bg-color);
 		position: relative;
 	}
-	.maxim-container::before {
+	.maxim-container:before {
 		content: "";
 		position: absolute;
 		top: 0;

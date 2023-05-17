@@ -1,6 +1,8 @@
 <script lang="ts">
 	import "./styles.css";
 	import { onMount } from "svelte";
+
+	// import stores
 	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore";
 
 	// import components
