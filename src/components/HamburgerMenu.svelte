@@ -56,10 +56,11 @@
 
 <div class="nav-top" style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
 	<div>
-		<a id="nav-logo" class="nav-menu-buttons" href="/">Tarot Sanctuary</a>
+		<a class="nav-logo nav-menu-buttons" href="/">Tarot Sanctuary</a>
 	</div>
 
 	<button
+		aria-label="Open/Close Menu Button"
 		class="hamburger-menu-toggle"
 		on:click={barTransform}
 		on:click={toggleMenu}
@@ -147,7 +148,7 @@
 		padding-left: 1em;
 		padding-right: 1em;
 	}
-	#nav-logo {
+	.nav-logo {
 		font-weight: normal;
 		font-size: 1.5rem;
 		font-family: "Cinzel", serif;
