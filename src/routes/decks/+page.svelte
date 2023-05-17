@@ -25,6 +25,9 @@
 	header {
 		text-align: center;
 	}
+	h1 {
+		margin-top: 1.5em;
+	}
 	.cards-container {
 		display: flex;
 		flex-wrap: wrap;

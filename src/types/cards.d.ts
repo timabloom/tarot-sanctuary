@@ -7,4 +7,6 @@ export interface Cards {
 	turnRight?: boolean;
 	inverted?: boolean;
 	grayscale?: boolean;
+	animation?: boolean;
+	emotion?: string;
 }

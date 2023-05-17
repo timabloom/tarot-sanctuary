@@ -5,7 +5,8 @@ function shuffleDeck(
 	reverse: boolean,
 	turn: boolean,
 	inverted: boolean,
-	grayscale: boolean
+	grayscale: boolean,
+	animation: boolean
 ): Cards[] {
 	const cleanDeck = deck.map((card) => {
 		return {
@@ -14,44 +15,66 @@ function shuffleDeck(
 			turnLeft: false,
 			turnRight: false,
 			inverted: false,
-			grayscale: false
+			grayscale: false,
+			animation: false
 		};
 	});
 	const shuffledDeck = [...cleanDeck];
 	for (let i = shuffledDeck.length - 1; i >= 0; i--) {
-		const c = Math.random();
-		const d = Math.random();
 		const j = Math.floor(Math.random() * (i + 1));
 		[shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
 
+		// animation shuffle
+		const a = Math.random();
+		if (animation === true && a <= 6 / 60) {
+			shuffledDeck[i].animation = true;
+			if (a <= 1 / 60) {
+				shuffledDeck[i].emotion = "loving";
+			} else if (a <= 2 / 60) {
+				shuffledDeck[i].emotion = "happy";
+			} else if (a <= 3 / 60) {
+				shuffledDeck[i].emotion = "excited";
+			} else if (a <= 4 / 60) {
+				shuffledDeck[i].emotion = "angry";
+			} else if (a <= 5 / 60) {
+				shuffledDeck[i].emotion = "afraid";
+			} else if (a <= 6 / 60) {
+				shuffledDeck[i].emotion = "sad";
+			}
+		}
+
 		// colour shuffle
+		const c = Math.random();
 		if (inverted === true && grayscale === true) {
-			if (c <= 1 / 10 && inverted === true) {
+			if (c <= 1 / 20 && inverted === true) {
 				shuffledDeck[i].inverted = true;
-			} else if (c > 9 / 10 && grayscale === true) {
+			} else if (c <= 2 / 20 && grayscale === true) {
 				shuffledDeck[i].grayscale = true;
 			}
-		} else if (c <= 1 / 8 && inverted === true) {
+		} else if (c <= 2 / 20 && inverted === true) {
 			shuffledDeck[i].inverted = true;
-		} else if (c > 7 / 8 && grayscale === true) {
+		} else if (c <= 2 / 20 && grayscale === true) {
 			shuffledDeck[i].grayscale = true;
 		}
 
 		// direction shuffle
-		if (reverse === true && turn === true) {
-			if (d <= 0.25 && reverse === true) {
+		const d = Math.random();
+		if (shuffledDeck[i].animation !== true) {
+			if (reverse === true && turn === true) {
+				if (d <= 8 / 20 && reverse === true) {
+					shuffledDeck[i].reverse = true;
+				} else if (d > 19 / 20 && turn === true) {
+					shuffledDeck[i].turnLeft = true;
+				} else if (d > 18 / 20 && turn === true) {
+					shuffledDeck[i].turnRight = true;
+				}
+			} else if (d <= 1 / 2 && reverse === true) {
 				shuffledDeck[i].reverse = true;
-			} else if (d > 9 / 10 && turn === true) {
+			} else if (d <= 1 / 20 && turn === true) {
 				shuffledDeck[i].turnLeft = true;
-			} else if (d > 8 / 10 && turn === true) {
+			} else if (d <= 2 / 20 && turn === true) {
 				shuffledDeck[i].turnRight = true;
 			}
-		} else if (d <= 0.5 && reverse === true) {
-			shuffledDeck[i].reverse = true;
-		} else if (d <= 1 / 10 && turn === true) {
-			shuffledDeck[i].turnLeft = true;
-		} else if (d > 9 / 10 && turn === true) {
-			shuffledDeck[i].turnRight = true;
 		}
 	}
 	return shuffledDeck;
@@ -63,8 +86,9 @@ export function randomizeSpread(
 	reverse: boolean,
 	turn: boolean,
 	inverted: boolean,
-	grayscale: boolean
+	grayscale: boolean,
+	animation: boolean
 ): Cards[] {
-	const shuffledDeck = shuffleDeck(deck, reverse, turn, inverted, grayscale);
+	const shuffledDeck = shuffleDeck(deck, reverse, turn, inverted, grayscale, animation);
 	return shuffledDeck.slice(0, spreadSize);
 }

@@ -13,26 +13,19 @@
 	let turn = false;
 	let inverted = false;
 	let grayscale = false;
+	let animation = false;
 
-	function changeSpread(newSpread: number): void {
+	function changeSpread(event: Event): void {
+		const newSpread = parseInt((event.target as HTMLInputElement).value);
 		spread = newSpread;
-		if (newSpread === 1) {
-			cards = marseilleCardBack;
-		} else if (newSpread === 3) {
-			cards = [...marseilleCardBack];
-			for (let i = 0; i < 2; i++) {
-				cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
-			}
-		} else if (newSpread === 5) {
-			cards = [...marseilleCardBack];
-			for (let i = 0; i < 4; i++) {
-				cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
-			}
+		cards = [...marseilleCardBack];
+		for (let i = 1; i < newSpread; i++) {
+			cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
 		}
 	}
 
 	function drawCards(): void {
-		cards = randomizeSpread(spread, marseilleDeck, reverse, turn, inverted, grayscale);
+		cards = randomizeSpread(spread, marseilleDeck, reverse, turn, inverted, grayscale, animation);
 	}
 </script>
 
@@ -64,79 +57,43 @@
 				<input type="checkbox" bind:checked={grayscale} />
 				Grayscale
 			</label>
+			<label>
+				<input type="checkbox" bind:checked={animation} />
+				Animation
+			</label>
 		</div>
 	</div>
 
 	<div class="spread-container">
-		<button on:click={() => changeSpread(1)}>Single Card</button>
-		<button on:click={() => changeSpread(3)}>Three Cards</button>
-		<button on:click={() => changeSpread(5)}>Five Cards</button>
+		<input type="range" min="1" max="10" bind:value={spread} on:change={changeSpread} />
+
+		<p>Selected spread: {spread}</p>
 	</div>
 
 	<div class="cards-container">
 		{#each cards as card (card)}
 			<div>
-				{#if card.reverse === true}
-					<div class="image-container">
-						<img
-							class={card.grayscale === true
-								? "grayscale reverse"
-								: card.inverted === true
-								? "inverted reverse"
-								: "reverse"}
-							alt={card.name}
-							src={card.image}
-						/>
-					</div>
-					<h2>
-						{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
-					</h2>
-				{:else if card.turnLeft === true}
-					<div class="image-container-flip">
-						<img
-							class={card.grayscale === true
-								? "grayscale turn-left"
-								: card.inverted === true
-								? "inverted turn-left"
-								: "turn-left"}
-							alt={card.name}
-							src={card.image}
-						/>
-					</div>
-					<h2 class="card-name-flip">
-						{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
-					</h2>
-				{:else if card.turnRight === true}
-					<div class="image-container-flip">
-						<img
-							class={card.grayscale === true
-								? "grayscale turn-right"
-								: card.inverted === true
-								? "inverted turn-right"
-								: "turn-right"}
-							alt={card.name}
-							src={card.image}
-						/>
-					</div>
-					<h2 class="card-name-flip">
-						{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
-					</h2>
-				{:else}
-					<div class="image-container">
-						<img
-							class={card.grayscale === true
-								? "grayscale"
-								: card.inverted === true
-								? "inverted"
-								: ""}
-							alt={card.name}
-							src={card.image}
-						/>
-					</div>
-					<h2>
-						{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
-					</h2>
-				{/if}
+				<div
+					class={card.turnLeft === true || card.turnRight === true
+						? "image-container-flip"
+						: "image-container"}
+				>
+					<img
+						class={`
+							${card.reverse === true && "reverse"}
+							${card.turnLeft === true && "turn-left"}
+							${card.turnRight === true && "turn-right"}
+							${card.inverted === true && "inverted"}
+							${card.grayscale === true && "grayscale"}
+							${card.animation === true && `${card.emotion}`}
+							`}
+						alt={card.name}
+						src={card.image}
+					/>
+				</div>
+				<h2 class={card.turnLeft === true || card.turnRight === true ? "card-name-flip" : ""}>
+					{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
+				</h2>
 			</div>
 		{/each}
 	</div>
@@ -147,6 +104,9 @@
 	header {
 		text-align: center;
 	}
+	h1 {
+		margin-top: 1.5em;
+	}
 	main {
 		text-align: center;
 		margin-bottom: 3em;
@@ -154,7 +114,7 @@
 	.options-container {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 	}
 	.options-container div {
 		display: flex;
@@ -174,8 +134,9 @@
 		justify-content: center;
 		gap: 0.5em;
 	}
-	.spread-container button {
-		width: 7em;
+	.spread-container p {
+		text-align: start;
+		width: 9em;
 	}
 	.cards-container {
 		display: flex;
@@ -185,6 +146,7 @@
 		gap: 1em;
 	}
 	.image-container {
+		position: relative;
 		margin: 0 1em;
 		height: 570px;
 		width: 300px;
@@ -199,7 +161,7 @@
 	}
 	.card-name-flip {
 		margin-top: -4.5em;
-		margin-bottom: 5.85em;
+		margin-bottom: 5.84em;
 	}
 	.reverse {
 		transform: scaleY(-1);
@@ -215,5 +177,133 @@
 	}
 	.grayscale {
 		filter: grayscale(1);
+	}
+
+	.sad {
+		animation: rotateLeft 2.5s ease-in-out infinite, crying 10s linear infinite;
+	}
+
+	@keyframes rotateLeft {
+		0% {
+			transform: translateY(0) perspective(400px) rotateZ(0);
+		}
+		50% {
+			transform: translateY(10px) perspective(400px) rotateZ(-5deg);
+		}
+		100% {
+			transform: translateY(0) perspective(400px) rotateZ(0);
+		}
+	}
+
+	@keyframes crying {
+		0%,
+		100% {
+			transform: translateX(0) rotateZ(0);
+		}
+		10%,
+		30% {
+			transform: translateX(-5px) rotateZ(-5deg);
+		}
+		50% {
+			transform: translateX(-3px) rotateZ(-3deg);
+		}
+		70%,
+		90% {
+			transform: translateX(-5px) rotateZ(-5deg);
+		}
+	}
+
+	.afraid {
+		animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+		perspective: 1000px;
+	}
+
+	@keyframes shake {
+		10%,
+		90% {
+			transform: translate3d(-1px, 0, 0);
+		}
+
+		20%,
+		80% {
+			transform: translate3d(2px, 0, 0);
+		}
+
+		30%,
+		50%,
+		70% {
+			transform: translate3d(-4px, 0, 0);
+		}
+
+		40%,
+		60% {
+			transform: translate3d(4px, 0, 0);
+		}
+	}
+
+	.angry {
+		animation: angry 0.15s linear infinite;
+	}
+
+	@keyframes angry {
+		0%,
+		100% {
+			transform: rotate(0deg);
+		}
+		50% {
+			transform: rotate(5deg);
+		}
+	}
+
+	.loving {
+		animation: pulse 0.8s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.1);
+		}
+	}
+
+	.excited {
+		animation: excited 0.3s ease-in-out infinite;
+	}
+
+	@keyframes excited {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-15px);
+		}
+	}
+
+	.happy {
+		animation: joy 1s ease-in-out infinite;
+	}
+
+	@keyframes joy {
+		0% {
+			transform: translateY(0) rotate(0deg) scale(1);
+		}
+		25% {
+			transform: translateY(-10px) rotate(5deg) scale(1.1);
+		}
+		50% {
+			transform: translateY(0) rotate(0deg) scale(1);
+		}
+		75% {
+			transform: translateY(-10px) rotate(-5deg) scale(1.1);
+		}
+		100% {
+			transform: translateY(0) rotate(0deg) scale(1);
+		}
 	}
 </style>
