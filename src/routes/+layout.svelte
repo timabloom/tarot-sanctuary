@@ -260,6 +260,10 @@
 		border-bottom: 2px solid var(--main-accent-color);
 		border-radius: 2px;
 	}
+	.footer-logo-container a {
+		display: inline-block;
+		width: fit-content;
+	}
 	.footer-logo-container img {
 		display: block;
 	}

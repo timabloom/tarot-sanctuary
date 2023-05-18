@@ -24,31 +24,32 @@
 		<div class="maxim-container">
 			<h3 class="maxim">Know Thyself</h3>
 			<p class="card-name">The Hermit</p>
-			<div class="card-container">
-				<a class="read-more" href="/guidance">
-					<img alt="The Hermit tarot card" src="/marseille-deck/a09.jpg" /></a
-				>
-			</div>
+			<a class="read-more" href="/guidance">
+				<div class="card-container">
+					<img alt="The Hermit tarot card" src="/marseille-deck/a09.jpg" />
+				</div></a
+			>
 			<p><a class="read-more" href="/guidance">Read More</a></p>
 		</div>
 		<div class="maxim-container">
 			<h3 class="maxim">Nothing in Excess</h3>
 			<p class="card-name">Temperance</p>
-			<div class="card-container">
-				<a class="read-more" href="/guidance"
-					><img alt="The Temperance tarot card" src="/marseille-deck/a14.jpg" /></a
-				>
-			</div>
+
+			<a class="read-more" href="/guidance">
+				<div class="card-container">
+					<img alt="The Temperance tarot card" src="/marseille-deck/a14.jpg" />
+				</div></a
+			>
 			<p><a class="read-more" href="/guidance">Read More</a></p>
 		</div>
 		<div class="maxim-container">
 			<h3 class="maxim">Surety Brings Ruin</h3>
 			<p class="card-name">The Tower</p>
-			<div class="card-container">
-				<a class="read-more" href="/guidance"
-					><img alt="The Tower tarot card" src="/marseille-deck/a16.jpg" /></a
-				>
-			</div>
+			<a class="read-more" href="/guidance">
+				<div class="card-container">
+					<img alt="The Tower tarot card" src="/marseille-deck/a16.jpg" />
+				</div></a
+			>
 			<p><a class="read-more" href="/guidance">Read More</a></p>
 		</div>
 	</div>
@@ -130,11 +131,10 @@
 		position: relative;
 		border: 2px solid black;
 	}
-
 	.card-container img {
 		position: absolute;
 		top: -10%;
-		left: -6.3%;
+		left: -6.4%;
 		transform: scale(0.8);
 		transform-origin: top left;
 	}
