@@ -14,13 +14,16 @@
 		};
 	});
 
-	const menuPadding = writable(1.5);
+	let logoFont = 2;
+	let menuPadding = 1.5;
 
 	function updateMenuPadding() {
 		if (window.scrollY > 1) {
-			menuPadding.set(0.3);
+			logoFont = 1.5;
+			menuPadding = 0.3;
 		} else {
-			menuPadding.set(1.5);
+			logoFont = 2;
+			menuPadding = 1.5;
 		}
 	}
 
@@ -54,9 +57,11 @@
 	}
 </script>
 
-<div class="nav-top" style="padding-top: {$menuPadding}em; padding-bottom: {$menuPadding}em;">
+<div class="nav-top" style="padding-top: {menuPadding}em; padding-bottom: {menuPadding}em;">
 	<div>
-		<a class="nav-logo nav-menu-buttons" href="/">Tarot Sanctuary</a>
+		<a class="nav-logo nav-menu-buttons" style="font-size: {logoFont}rem;" href="/"
+			>Tarot Sanctuary</a
+		>
 	</div>
 
 	<button
@@ -150,7 +155,6 @@
 	}
 	.nav-logo {
 		font-weight: normal;
-		font-size: 1.5rem;
 		font-family: "Cinzel", serif;
 	}
 	.nav-menu-buttons {

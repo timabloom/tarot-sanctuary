@@ -46,7 +46,7 @@
 
 <div class="navbar-container">
 	<div>
-		<a class="nav-logo nav-menu-buttons" style="font-size: {logoFont}em;" href="/"
+		<a class="nav-logo nav-menu-buttons" style="font-size: {logoFont}rem;" href="/"
 			>Tarot Sanctuary</a
 		>
 	</div>
@@ -234,15 +234,6 @@
 		color: #f1f1f1;
 		padding: 0;
 	}
-	@media screen and (max-width: 1200px) {
-		.hamburger-menu {
-			display: block;
-		}
-		.navbar-container {
-			display: none;
-		}
-	}
-
 	.wrapper {
 		display: grid;
 		grid-template-rows: 1fr auto;
@@ -300,7 +291,13 @@
 		filter: brightness(0) invert(1);
 		height: 24px;
 	}
-	@media screen and (max-width: 1570px) {
+	@media screen and (max-width: 1500px) {
+		.hamburger-menu {
+			display: block;
+		}
+		.navbar-container {
+			display: none;
+		}
 		.footer-license-section {
 			justify-content: flex-start;
 		}
