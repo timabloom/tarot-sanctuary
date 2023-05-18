@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { writable } from "svelte/store";
 	import { initializeDarkMode, toggleDarkMode, darkModeStore } from "../stores/darkModeStore.js";
 
 	onMount(() => {
