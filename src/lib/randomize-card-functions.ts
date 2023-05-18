@@ -19,34 +19,46 @@ function shuffleDeck(
 			turnRight: false,
 			inverted: false,
 			grayscale: false,
-			animation: false,
-			arcanaMajor: false,
-			arcanaMinor: false
+			animation: false
 		};
 	});
 	const shuffledDeck: Cards[] = [...cleanDeck];
 	const duplicateDeck: Cards[] = [];
 	let id = 0;
 
-	for (let i = shuffledDeck.length - 1; i >= 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
+	for (let i = 0; i <= cleanDeck.length - 1; i++) {
+		// normal shuffle
+		const n = Math.floor(Math.random() * cleanDeck.length);
+
+		// duplicate shuffle
+		const d = Math.floor(Math.random() * cleanDeck.length);
 
 		if (duplicates) {
 			const object = {
-				...shuffledDeck[j],
+				...cleanDeck[d],
 				id: id++
 			};
 			duplicateDeck.push(object);
+
+			// arcana options for duplicate deck
+			if (arcanaMajor && duplicateDeck[i].arcana === "major") {
+				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn);
+			} else if (arcanaMinor && duplicateDeck[i].arcana === "minor") {
+				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn);
+			} else if (!arcanaMajor && !arcanaMinor) {
+				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn);
+			}
 		} else {
-			[shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
-		}
-		// arcana options
-		if (arcanaMajor && shuffledDeck[i].arcana === "major") {
-			optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
-		} else if (arcanaMinor && shuffledDeck[i].arcana === "minor") {
-			optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
-		} else if (!arcanaMajor && !arcanaMinor) {
-			optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
+			[shuffledDeck[i], shuffledDeck[n]] = [shuffledDeck[n], shuffledDeck[i]];
+
+			// arcana options for normal deck
+			if (arcanaMajor && shuffledDeck[i].arcana === "major") {
+				optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
+			} else if (arcanaMinor && shuffledDeck[i].arcana === "minor") {
+				optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
+			} else if (!arcanaMajor && !arcanaMinor) {
+				optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
+			}
 		}
 	}
 	if (duplicates) {
