@@ -17,6 +17,8 @@
 	let animation = false;
 	let arcanaMajor = false;
 	let arcanaMinor = false;
+	let duplicates = false;
+	let id = 0;
 
 	function changeSpread(event: Event): void {
 		const newSpread = parseInt((event.target as HTMLInputElement).value);
@@ -37,7 +39,8 @@
 			grayscale,
 			animation,
 			arcanaMajor,
-			arcanaMinor
+			arcanaMinor,
+			duplicates
 		);
 	}
 </script>
@@ -54,7 +57,21 @@
 	<div class="options-container">
 		<h2>Options</h2>
 		<div>
+			<h3>Deck Options</h3>
 			<label>
+				<input type="checkbox" bind:checked={arcanaMajor} />
+				Major Arcana
+			</label>
+			<label>
+				<input type="checkbox" bind:checked={arcanaMinor} />
+				Minor Arcana
+			</label>
+			<label>
+				<input type="checkbox" bind:checked={duplicates} />
+				Duplicates
+			</label>
+			<h3>Card Options</h3>
+			<label class="label-reverse">
 				<input type="checkbox" bind:checked={reverse} />
 				Reverse
 			</label>
@@ -73,14 +90,6 @@
 			<label>
 				<input type="checkbox" bind:checked={animation} />
 				Animation
-			</label>
-			<label>
-				<input type="checkbox" bind:checked={arcanaMajor} />
-				Major Arcana
-			</label>
-			<label>
-				<input type="checkbox" bind:checked={arcanaMinor} />
-				Minor Arcana
 			</label>
 		</div>
 	</div>
