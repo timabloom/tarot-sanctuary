@@ -92,8 +92,8 @@
 	<slot />
 
 	<footer>
-		<div class="footer-main-container">
-			<a href="/about"> <img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
+		<div class="footer-logo-container">
+			<a href="/about"><img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
 			<p>A safe space to explore the Tarot</p>
 		</div>
 
@@ -111,14 +111,16 @@
 						>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
 					>.
 				</p>
-				<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-					><img
-						class="footer-cc-image"
-						alt="Creative Commons License link"
-						style="border-width:0"
-						src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
-					/></a
-				>
+				<div class="footer-cc-image-container">
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+						><img
+							class="footer-cc-image"
+							alt="Creative Commons License link"
+							style="border-width:0"
+							src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
+						/></a
+					>
+				</div>
 			</div>
 			<div class="footer-link-container">
 				<p class="footer-text">
@@ -129,16 +131,18 @@
 						href="https://github.com/timabloom/tarot-sanctuary">GitHub</a
 					>.
 				</p>
-				<a
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://github.com/timabloom/tarot-sanctuary"
-					><img
-						class="footer-github-image"
-						alt="Guthub project integration link"
-						src="/github-mark.svg"
-					/></a
-				>
+				<div class="footer-github-image-container">
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/timabloom/tarot-sanctuary"
+						><img
+							class="footer-github-image"
+							alt="Guthub project integration link"
+							src="/github-mark.svg"
+						/></a
+					>
+				</div>
 			</div>
 		</section>
 	</footer>
@@ -243,12 +247,15 @@
 		background-color: var(--main-bg-color-dark);
 		color: #f1f1f1;
 	}
-	.footer-main-container {
+	.footer-logo-container {
 		padding-top: 2.4em;
 		padding-bottom: 0.8em;
 		margin: 0 3em 0 3em;
 		border-bottom: 2px solid var(--main-accent-color);
 		border-radius: 2px;
+	}
+	.footer-logo-container img {
+		display: block;
 	}
 	.footer-license-section {
 		display: flex;
@@ -268,12 +275,19 @@
 	.footer-link:hover {
 		text-decoration: none;
 	}
-	.footer-cc-image {
+	.footer-cc-image-container {
 		margin-left: 0.2em;
 	}
-	.footer-github-image {
-		filter: brightness(0) invert(1);
+	.footer-cc-image {
+		display: block;
+	}
+	.footer-github-image-container {
 		margin-left: 0.1em;
+		margin-bottom: 0.3em;
+	}
+	.footer-github-image {
+		display: block;
+		filter: brightness(0) invert(1);
 		height: 24px;
 	}
 	@media screen and (max-width: 1570px) {
