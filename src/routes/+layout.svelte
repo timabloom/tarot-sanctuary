@@ -21,14 +21,23 @@
 
 	let menuPadding = 1.2;
 	let imgWidth = 4.5;
+	let themeFont = 1.5;
+	let logoFont = 2;
+	let menuFont = 1.5;
 
 	function updateMenuPadding() {
 		if (window.scrollY > 1) {
 			menuPadding = 0;
-			imgWidth = 3;
+			imgWidth = 2;
+			themeFont = 1.125;
+			logoFont = 1.5;
+			menuFont = 1.125;
 		} else {
 			menuPadding = 1.2;
 			imgWidth = 4.5;
+			themeFont = 1.5;
+			logoFont = 2;
+			menuFont = 1.5;
 		}
 	}
 </script>
@@ -37,23 +46,33 @@
 
 <div class="navbar-container">
 	<div>
-		<a class="nav-logo nav-menu-buttons" href="/">Tarot Sanctuary</a>
+		<a class="nav-logo nav-menu-buttons" style="font-size: {logoFont}em;" href="/"
+			>Tarot Sanctuary</a
+		>
 	</div>
 
 	<nav class="nav-menu-container">
 		<ul style="padding-top: {menuPadding}em; padding-bottom: {menuPadding}em;">
-			<li><a class="nav-menu-buttons" href="/">Home</a></li>
-			<li><a class="nav-menu-buttons" href="/guidance">Guidance</a></li>
-			<li><a class="nav-menu-buttons" href="/decks">Decks</a></li>
-			<li><a class="nav-menu-buttons" href="/readings">Readings</a></li>
-			<li><a class="nav-menu-buttons" href="/settings">Settings</a></li>
-			<li><a class="nav-menu-buttons" href="/about">About</a></li>
+			<li><a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/">Home</a></li>
+			<li>
+				<a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/guidance">Guidance</a>
+			</li>
+			<li><a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/decks">Decks</a></li>
+			<li>
+				<a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/readings">Readings</a>
+			</li>
+			<li>
+				<a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/settings">Settings</a>
+			</li>
+			<li><a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/about">About</a></li>
 		</ul>
 	</nav>
 
 	<div class="theme-container">
-		<button class="nav-menu-buttons theme-toggle-button" on:click={toggleDarkMode}
-			>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
+		<button
+			class="nav-menu-buttons theme-toggle-button"
+			style="font-size: {themeFont}em;"
+			on:click={toggleDarkMode}>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
 		>
 		<button class="theme-img-container" on:click={toggleDarkMode}>
 			<img
@@ -148,7 +167,6 @@
 	}
 	.nav-logo {
 		font-weight: normal;
-		font-size: 1.5rem;
 		font-family: "Cinzel", serif;
 	}
 	.nav-menu-container {
@@ -157,7 +175,6 @@
 	.nav-menu-buttons {
 		text-decoration: none;
 		color: inherit;
-		font-size: 1.125rem;
 	}
 	.nav-menu-buttons:hover {
 		color: var(--secondary-accent-color);
@@ -180,10 +197,9 @@
 	.theme-toggle-button {
 		background: none;
 		border: none;
-		font-size: 1.125rem;
 		font-family: "Cinzel", serif;
 		cursor: pointer;
-		min-width: 7em;
+		min-width: 9em;
 	}
 	.theme-img-container {
 		background: none;
