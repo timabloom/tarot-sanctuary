@@ -53,30 +53,32 @@
 
 	<nav class="nav-menu-container">
 		<ul style="padding-top: {menuPadding}em; padding-bottom: {menuPadding}em;">
-			<li><a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/">Home</a></li>
+			<li><a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/">Home</a></li>
 			<li>
-				<a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/guidance">Guidance</a>
+				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/guidance">Guidance</a>
 			</li>
-			<li><a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/decks">Decks</a></li>
+			<li><a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/decks">Decks</a></li>
 			<li>
-				<a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/readings">Readings</a>
+				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/readings">Readings</a>
 			</li>
 			<li>
-				<a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/settings">Settings</a>
+				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/settings">Settings</a>
 			</li>
-			<li><a class="nav-menu-buttons" style="font-size: {menuFont}em;" href="/about">About</a></li>
+			<li><a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/about">About</a></li>
 		</ul>
 	</nav>
 
 	<div class="theme-container">
-		<button
-			class="nav-menu-buttons theme-toggle-button"
-			style="font-size: {themeFont}em;"
-			on:click={toggleDarkMode}>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
-		>
-		<button class="theme-img-container" on:click={toggleDarkMode}>
+		<div class="theme-toggle-button-container" style="font-size: {themeFont}rem;">
+			<button
+				class="nav-menu-buttons theme-toggle-button"
+				style="font-size: {themeFont}rem;"
+				on:click={toggleDarkMode}>{!$darkModeStore ? "Dark Mode" : "Light Mode"}</button
+			>
+		</div>
+		<button class="theme-img-button" on:click={toggleDarkMode}>
 			<img
-				style="width: {imgWidth}em;"
+				style="width: {imgWidth}rem;"
 				alt="Website theme toggle"
 				src={!$darkModeStore ? "/theme-dark-moon.svg" : "/theme-light-sun.svg"}
 			/></button
@@ -175,6 +177,7 @@
 	}
 	.nav-menu-container {
 		padding: 0;
+		padding-right: 3.5em;
 	}
 	.nav-menu-buttons {
 		text-decoration: none;
@@ -196,24 +199,27 @@
 	.theme-container {
 		display: flex;
 		align-items: center;
-		padding-left: 1em;
+	}
+	.theme-toggle-button-container {
+		text-align: center;
+		width: 7.5em;
+		padding-top: 0.2em;
 	}
 	.theme-toggle-button {
 		background: none;
 		border: none;
 		font-family: "Cinzel", serif;
 		cursor: pointer;
-		min-width: 9em;
+		padding: 0;
 	}
-	.theme-img-container {
+	.theme-img-button {
 		background: none;
 		border: none;
 		cursor: pointer;
+		padding: 0;
 	}
-	.theme-img-container {
-		background: none;
-		border: none;
-		cursor: pointer;
+	.theme-img-button img {
+		display: block;
 	}
 	img:hover {
 		cursor: pointer;
