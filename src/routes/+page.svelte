@@ -100,7 +100,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 1em 3em 2em 3em;
-		max-width: 220px;
+		width: 230px;
 		height: 560px;
 		background-color: var(--secondary-bg-color);
 		position: relative;

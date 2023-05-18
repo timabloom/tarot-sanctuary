@@ -137,7 +137,10 @@
 	}
 	.spread-container p {
 		text-align: start;
-		width: 9em;
+		width: 9.4em;
+	}
+	.spread-container input {
+		width: 10em;
 	}
 	.cards-container {
 		display: flex;
