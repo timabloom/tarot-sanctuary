@@ -15,6 +15,8 @@
 	let inverted = false;
 	let grayscale = false;
 	let animation = false;
+	let arcanaMajor = false;
+	let arcanaMinor = false;
 
 	function changeSpread(event: Event): void {
 		const newSpread = parseInt((event.target as HTMLInputElement).value);
@@ -26,7 +28,17 @@
 	}
 
 	function drawCards(): void {
-		cards = randomizeSpread(spread, marseilleDeck, reverse, turn, inverted, grayscale, animation);
+		cards = randomizeSpread(
+			spread,
+			marseilleDeck,
+			reverse,
+			turn,
+			inverted,
+			grayscale,
+			animation,
+			arcanaMajor,
+			arcanaMinor
+		);
 	}
 </script>
 
@@ -61,6 +73,14 @@
 			<label>
 				<input type="checkbox" bind:checked={animation} />
 				Animation
+			</label>
+			<label>
+				<input type="checkbox" bind:checked={arcanaMajor} />
+				Major Arcana
+			</label>
+			<label>
+				<input type="checkbox" bind:checked={arcanaMinor} />
+				Minor Arcana
 			</label>
 		</div>
 	</div>
