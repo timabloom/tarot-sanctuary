@@ -4,12 +4,14 @@
 
 	// import decks
 	import { marseilleDeck, marseilleCardBack } from "../../lib/marseille-deck";
+	import { riderWaiteSmithDeck, riderWaiteSmithCardBack } from "../../lib/rider-waite-smith-deck";
 
 	// import types
 	import type { Cards } from "../../types/cards";
 
 	let spread = 1;
 	let cards: Cards[] = marseilleCardBack;
+	let deck: Cards[] = marseilleDeck;
 	let reverse = false;
 	let turn = false;
 	let inverted = false;
@@ -18,7 +20,16 @@
 	let arcanaMajor = false;
 	let arcanaMinor = false;
 	let duplicates = false;
-	let id = 0;
+
+	function switchDeck(deckSwitch: string): void {
+		if (deckSwitch === "marseille") {
+			cards = marseilleCardBack;
+			deck = marseilleDeck;
+		} else if (deckSwitch === "rider-waite-smith") {
+			cards = riderWaiteSmithCardBack;
+			deck = riderWaiteSmithDeck;
+		}
+	}
 
 	function changeSpread(event: Event): void {
 		const newSpread = parseInt((event.target as HTMLInputElement).value);
@@ -32,7 +43,7 @@
 	function drawCards(): void {
 		cards = randomizeSpread(
 			spread,
-			marseilleDeck,
+			deck,
 			reverse,
 			turn,
 			inverted,
@@ -54,6 +65,19 @@
 </header>
 
 <main>
+	<div class="options-container">
+		<h2>Decks</h2>
+		<div>
+			<label>
+				<input type="radio" name="deck" checked on:change={() => switchDeck("marseille")} />
+				Tarot de Marseille
+			</label>
+			<label>
+				<input type="radio" name="deck" on:change={() => switchDeck("rider-waite-smith")} />
+				Rider Waite Smith
+			</label>
+		</div>
+	</div>
 	<div class="options-container">
 		<h2>Options</h2>
 		<div>
@@ -122,7 +146,7 @@
 					/>
 				</div>
 				<h2 class={card.turnLeft === true || card.turnRight === true ? "card-name-flip" : ""}>
-					{card.name !== "Marseille Card Back" ? card.name : "Card Back"}
+					{card.name !== "Card Back" ? card.name : "Card Back"}
 				</h2>
 			</div>
 		{/each}
@@ -188,6 +212,10 @@
 		margin: 0 1em;
 		height: 570px;
 		width: 570px;
+	}
+	img {
+		height: 570px;
+		width: 300px;
 	}
 	h2 {
 		margin-top: 0.5em;

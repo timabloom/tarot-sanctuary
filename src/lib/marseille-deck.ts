@@ -82,5 +82,5 @@ export const marseilleDeck: Cards[] = [
 ];
 
 export const marseilleCardBack: Cards[] = [
-	{ id: 1, name: "Marseille Card Back", image: "./marseille-deck/z00.jpg" }
+	{ id: 1, name: "Card Back", image: "./marseille-deck/z00.jpg" }
 ];
