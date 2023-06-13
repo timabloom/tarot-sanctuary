@@ -14,7 +14,7 @@
 	<div class="cards-container">
 		{#each marseilleDeck as card (card)}
 			<div class="card">
-				<img alt={card.name} src={card.image} />
+				<img alt={card.name} src={card.image} loading="lazy"/>
 				<h2>{card.name}</h2>
 			</div>
 		{/each}
