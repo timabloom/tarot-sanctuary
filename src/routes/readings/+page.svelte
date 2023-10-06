@@ -25,18 +25,33 @@
 		if (deckSwitch === "marseille") {
 			cards = marseilleCardBack;
 			deck = marseilleDeck;
+			cards = [...marseilleCardBack];
+			for (let i = 1; i < spread; i++) {
+				cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
+			}
 		} else if (deckSwitch === "rider-waite-smith") {
 			cards = riderWaiteSmithCardBack;
 			deck = riderWaiteSmithDeck;
+			cards = [...riderWaiteSmithCardBack];
+			for (let i = 1; i < spread; i++) {
+				cards.push({ ...riderWaiteSmithCardBack[0], id: riderWaiteSmithCardBack.length + i });
+			}
 		}
 	}
 
 	function changeSpread(event: Event): void {
 		const newSpread = parseInt((event.target as HTMLInputElement).value);
 		spread = newSpread;
-		cards = [...marseilleCardBack];
-		for (let i = 1; i < newSpread; i++) {
-			cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
+		if (deck === marseilleDeck) {
+			cards = [...marseilleCardBack];
+			for (let i = 1; i < newSpread; i++) {
+				cards.push({ ...marseilleCardBack[0], id: marseilleCardBack.length + i });
+			}
+		} else {
+			cards = [...riderWaiteSmithCardBack];
+			for (let i = 1; i < newSpread; i++) {
+				cards.push({ ...riderWaiteSmithCardBack[0], id: riderWaiteSmithCardBack.length + i });
+			}
 		}
 	}
 
@@ -120,7 +135,6 @@
 
 	<div class="spread-container">
 		<input type="range" min="1" max="10" bind:value={spread} on:change={changeSpread} />
-
 		<p>Selected spread: {spread}</p>
 	</div>
 
@@ -145,7 +159,13 @@
 						src={card.image}
 					/>
 				</div>
-				<h2 class={card.turnLeft === true || card.turnRight === true ? "card-name-flip" : ""}>
+				<h2
+					class={(card.turnLeft === true || card.turnRight === true) && deck === riderWaiteSmithDeck
+						? "card-name-flip-rider"
+						: card.turnLeft === true || card.turnRight === true
+						? "card-name-flip"
+						: ""}
+				>
 					{card.name !== "Card Back" ? card.name : "Card Back"}
 				</h2>
 			</div>
@@ -190,7 +210,7 @@
 	}
 	.spread-container p {
 		text-align: start;
-		width: 9.4em;
+		width: 10em;
 	}
 	.spread-container input {
 		width: 10em;
@@ -206,7 +226,7 @@
 		position: relative;
 		margin: 0 1em;
 		height: 570px;
-		width: 300px;
+		width: auto;
 	}
 	.image-container-flip {
 		margin: 0 1em;
@@ -214,14 +234,19 @@
 		width: 570px;
 	}
 	img {
+		border-radius: 10px;
 		height: 570px;
-		width: 300px;
+		width: auto;
 	}
 	h2 {
 		margin-top: 0.5em;
 	}
 	.card-name-flip {
 		margin-top: -4.5em;
+		margin-bottom: 5.84em;
+	}
+	.card-name-flip-rider {
+		margin-top: -4em;
 		margin-bottom: 5.84em;
 	}
 	.reverse {
