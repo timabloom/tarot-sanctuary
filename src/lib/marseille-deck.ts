@@ -23,6 +23,7 @@ export const marseilleDeck: Cards[] = [
 	{ name: "The Last Judgment", image: "./marseille-deck/a20.jpg", arcana: "major" },
 	{ name: "The World", image: "./marseille-deck/a21.jpg", arcana: "major" },
 	{ name: "The Fool", image: "./marseille-deck/a22.jpg", arcana: "major" },
+
 	{ name: "Ace of Clubs", image: "./marseille-deck/b01.jpg", arcana: "minor" },
 	{ name: "Two of Clubs", image: "./marseille-deck/b02.jpg", arcana: "minor" },
 	{ name: "Three of Clubs", image: "./marseille-deck/b03.jpg", arcana: "minor" },
@@ -37,6 +38,7 @@ export const marseilleDeck: Cards[] = [
 	{ name: "Knight of Clubs", image: "./marseille-deck/b12.jpg", arcana: "minor" },
 	{ name: "Queen of Clubs", image: "./marseille-deck/b13.jpg", arcana: "minor" },
 	{ name: "King of Clubs", image: "./marseille-deck/b14.jpg", arcana: "minor" },
+
 	{ name: "Ace of Cups", image: "./marseille-deck/c01.jpg", arcana: "minor" },
 	{ name: "Two of Cups", image: "./marseille-deck/c02.jpg", arcana: "minor" },
 	{ name: "Three of Cups", image: "./marseille-deck/c03.jpg", arcana: "minor" },
@@ -51,6 +53,7 @@ export const marseilleDeck: Cards[] = [
 	{ name: "Knight of Cups", image: "./marseille-deck/c12.jpg", arcana: "minor" },
 	{ name: "Queen of Cups", image: "./marseille-deck/c13.jpg", arcana: "minor" },
 	{ name: "King of Cups", image: "./marseille-deck/c14.jpg", arcana: "minor" },
+
 	{ name: "Ace of Coins", image: "./marseille-deck/d01.jpg", arcana: "minor" },
 	{ name: "Two of Coins", image: "./marseille-deck/d02.jpg", arcana: "minor" },
 	{ name: "Three of Coins", image: "./marseille-deck/d03.jpg", arcana: "minor" },
@@ -65,6 +68,7 @@ export const marseilleDeck: Cards[] = [
 	{ name: "Knight of Coins", image: "./marseille-deck/d12.jpg", arcana: "minor" },
 	{ name: "Queen of Coins", image: "./marseille-deck/d13.jpg", arcana: "minor" },
 	{ name: "King of Coins", image: "./marseille-deck/d14.jpg", arcana: "minor" },
+
 	{ name: "Ace of Swords", image: "./marseille-deck/e01.jpg", arcana: "minor" },
 	{ name: "Two of Swords", image: "./marseille-deck/e02.jpg", arcana: "minor" },
 	{ name: "Three of Swords", image: "./marseille-deck/e03.jpg", arcana: "minor" },
