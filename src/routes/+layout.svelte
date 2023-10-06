@@ -52,19 +52,25 @@
 	</div>
 
 	<nav class="nav-menu-container">
-		<ul style="padding-top: {menuPadding}em; padding-bottom: {menuPadding}em;">
-			<li><a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/">Home</a></li>
-			<li>
+		<ul class="menu-ul" style="padding-top: {menuPadding}em; padding-bottom: {menuPadding}em;">
+			<li class="menu-li">
+				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/">Home</a>
+			</li>
+			<li class="menu-li">
 				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/guidance">Guidance</a>
 			</li>
-			<li><a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/decks">Decks</a></li>
-			<li>
+			<li class="menu-li">
+				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/decks">Decks</a>
+			</li>
+			<li class="menu-li">
 				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/readings">Readings</a>
 			</li>
-			<li>
+			<li class="menu-li">
 				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/settings">Settings</a>
 			</li>
-			<li><a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/about">About</a></li>
+			<li class="menu-li">
+				<a class="nav-menu-buttons" style="font-size: {menuFont}rem;" href="/about">About</a>
+			</li>
 		</ul>
 	</nav>
 
@@ -94,32 +100,53 @@
 	<slot />
 
 	<footer>
-		<div class="footer-logo-container">
-			<a href="/about"><img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
-			<p>A safe space to explore the Tarot</p>
+		<div class="footer-container">
+			<div class="footer-logo-container">
+				<a href="/about"><img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
+				<p>A new fun way to explore the Tarot</p>
+			</div>
+
+			<div class="footer-attributions-container">
+				<h2 class="footer-h2">Tarot Deck Attributions:</h2>
+				<ul>
+					<li>
+						<p class="footer-attribution footer">
+							CBD Tarot de Marseille by Dr. Yoav Ben-Dov,
+							<a class="footer-attribution footer-link" href="http://cbdtarot.com"
+								>www.cbdtarot.com</a
+							>
+						</p>
+					</li>
+					<li>
+						<a class="footer-attribution footer-link" href="/attributions"
+							>Enhanced Rider-Waite Tarot by Timothy Magee</a
+						>
+					</li>
+				</ul>
+			</div>
 		</div>
 
-		<section class="footer-license-section">
+		<div class="footer-license-section">
 			<div class="footer-link-container">
 				<p>Copyright © 2023 Tarot Sanctuary</p>
 			</div>
 			<div class="footer-link-container">
 				<p class="footer-text">
-					This work is licensed under a
+					Except where otherwise noted, content on this site is licensed under 
 					<a
 						class="footer-link"
 						rel="license"
-						href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-						>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a
-					>.
+						href="https://creativecommons.org/licenses/by-sa/4.0/"
+						>CC BY-SA 4.0</a
+					>
 				</p>
 				<div class="footer-cc-image-container">
-					<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+					<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"
 						><img
 							class="footer-cc-image"
 							alt="Creative Commons License link"
 							style="border-width:0"
-							src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"
+							src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"
 						/></a
 					>
 				</div>
@@ -146,7 +173,7 @@
 					>
 				</div>
 			</div>
-		</section>
+		</div>
 	</footer>
 </div>
 
@@ -186,16 +213,25 @@
 	.nav-menu-buttons:hover {
 		color: var(--secondary-accent-color);
 	}
+
 	ul {
+		padding-left: 0;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	.menu-ul {
 		display: flex;
 		justify-content: center;
 		margin: 0;
-		padding-left: 0;
 	}
-	li {
-		list-style: none;
+
+	.menu-li {
 		margin: 1em;
 	}
+
 	.theme-container {
 		display: flex;
 		align-items: center;
@@ -244,25 +280,47 @@
 		background-color: var(--main-bg-color-dark);
 		color: #f1f1f1;
 	}
+
+	.footer-container {
+		display: flex;
+	}
+
 	.footer-logo-container {
 		padding-top: 2.4em;
 		padding-bottom: 0.8em;
 		margin: 0 3em 0 3em;
-		border-bottom: 2px solid var(--main-accent-color);
-		border-radius: 2px;
 	}
+
 	.footer-logo-container a {
 		display: inline-block;
 		width: fit-content;
 	}
+
 	.footer-logo-container img {
 		display: block;
 	}
+
+	.footer-attributions-container {
+		margin: 2.4em 1em 0 1em;
+	}
+
+	.footer-h2 {
+		margin: 0;
+		font-size: 1.125rem;
+	}
+
+	.footer-attribution {
+		font-size: 0.875rem;
+		margin: 1em 0;
+	}
+
 	.footer-license-section {
 		display: flex;
 		justify-content: space-between;
 		font-size: 0.875rem;
-		margin: 0 4em;
+		margin: 0 3.8em;
+		border-top: 2px solid var(--main-accent-color);
+		border-radius: 2px;
 	}
 	.footer-link-container {
 		display: flex;
@@ -276,12 +334,15 @@
 	.footer-link:hover {
 		text-decoration: none;
 	}
+
 	.footer-cc-image-container {
 		margin-left: 0.2em;
 	}
+
 	.footer-cc-image {
 		display: block;
 	}
+
 	.footer-github-image-container {
 		margin-left: 0.1em;
 		margin-bottom: 0.3em;
@@ -305,7 +366,6 @@
 			display: none;
 		}
 		.footer-cc-image {
-			margin-top: 0.3em;
 			margin-left: 0.5em;
 		}
 		.footer-github-image {
