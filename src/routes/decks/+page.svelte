@@ -107,6 +107,7 @@
 	}
 	.card img {
 		max-width: 100%;
+		border-radius: 5px;
 	}
 	.card h3 {
 		margin-top: 0.5em;
