@@ -235,7 +235,7 @@
 	}
 	img {
 		border-radius: 10px;
-		height: 570px;
+		height: 567px;
 		width: auto;
 	}
 	h2 {
