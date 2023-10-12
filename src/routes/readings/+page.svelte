@@ -20,6 +20,7 @@
 	let arcanaMajor = false;
 	let arcanaMinor = false;
 	let duplicates = false;
+	let fused = false;
 
 	function switchDeck(deckSwitch: string): void {
 		if (deckSwitch === "marseille") {
@@ -66,7 +67,8 @@
 			animation,
 			arcanaMajor,
 			arcanaMinor,
-			duplicates
+			duplicates,
+			fused
 		);
 	}
 </script>
@@ -130,6 +132,10 @@
 				<input type="checkbox" bind:checked={animation} />
 				Animation
 			</label>
+			<label>
+				<input type="checkbox" bind:checked={fused} />
+				Fused
+			</label>
 		</div>
 	</div>
 
@@ -141,13 +147,41 @@
 	<div class="cards-container">
 		{#each cards as card (card)}
 			<div>
-				<div
-					class={card.turnLeft === true || card.turnRight === true
-						? "image-container-flip"
-						: "image-container"}
-				>
-					<img
-						class={`
+				{#if card.fused === true}
+					<div class={"image-container"}>
+						<img
+							class={`
+							image1
+							${card.reverse === true && "reverse"}
+							${card.inverted === true && "inverted"}
+							${card.grayscale === true && "grayscale"}
+							`}
+							alt={card.name}
+							src={card.image}
+						/>
+						<img
+							class={`
+							image2
+							${card.reverse === true && "reverse"}
+							${card.inverted === true && "inverted"}
+							${card.grayscale === true && "grayscale"}
+							`}
+							alt={card.name2}
+							src={card.image2}
+						/>
+					</div>
+					<h2>
+						{card.name} <br />&<br />
+						{card.name2}
+					</h2>
+				{:else}
+					<div
+						class={card.turnLeft === true || card.turnRight === true
+							? "image-container-flip"
+							: "image-container"}
+					>
+						<img
+							class={`
 							${card.reverse === true && "reverse"}
 							${card.turnLeft === true && "turn-left"}
 							${card.turnRight === true && "turn-right"}
@@ -155,19 +189,21 @@
 							${card.grayscale === true && "grayscale"}
 							${card.animation === true && `${card.emotion}`}
 							`}
-						alt={card.name}
-						src={card.image}
-					/>
-				</div>
-				<h2
-					class={(card.turnLeft === true || card.turnRight === true) && deck === riderWaiteSmithDeck
-						? "card-name-flip-rider"
-						: card.turnLeft === true || card.turnRight === true
-						? "card-name-flip"
-						: ""}
-				>
-					{card.name !== "Card Back" ? card.name : "Card Back"}
-				</h2>
+							alt={card.name}
+							src={card.image}
+						/>
+					</div>
+					<h2
+						class={(card.turnLeft === true || card.turnRight === true) &&
+						deck === riderWaiteSmithDeck
+							? "card-name-flip-rider"
+							: card.turnLeft === true || card.turnRight === true
+							? "card-name-flip"
+							: ""}
+					>
+						{card.name !== "Card Back" ? card.name : "Card Back"}
+					</h2>
+				{/if}
 			</div>
 		{/each}
 	</div>
@@ -178,18 +214,22 @@
 	header {
 		text-align: center;
 	}
+
 	h1 {
 		margin-top: 1.5em;
 	}
+
 	main {
 		text-align: center;
 		margin-bottom: 3em;
 	}
+
 	.options-container {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 1em;
 	}
+
 	.options-container div {
 		display: flex;
 		flex-direction: column;
@@ -197,24 +237,30 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	.options-container h2 {
 		margin-bottom: 0.5em;
 	}
+
 	label {
 		margin-bottom: 0.3em;
 	}
+
 	.spread-container {
 		display: flex;
 		justify-content: center;
 		gap: 0.5em;
 	}
+
 	.spread-container p {
 		text-align: start;
 		width: 10em;
 	}
+
 	.spread-container input {
 		width: 10em;
 	}
+
 	.cards-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -222,45 +268,56 @@
 		margin-top: 1em;
 		gap: 1em;
 	}
+
 	.image-container {
 		position: relative;
 		margin: 0 1em;
-		height: 570px;
-		width: auto;
+		height: 567px;
+		width: 330px;
 	}
+
 	.image-container-flip {
 		margin: 0 1em;
-		height: 570px;
+		height: 567px;
 		width: 570px;
 	}
+
 	img {
 		border-radius: 10px;
 		height: 567px;
 		width: auto;
 	}
+
 	h2 {
 		margin-top: 0.5em;
 	}
+
 	.card-name-flip {
 		margin-top: -4.5em;
 		margin-bottom: 5.84em;
 	}
+
 	.card-name-flip-rider {
 		margin-top: -4em;
 		margin-bottom: 5.84em;
 	}
+
 	.reverse {
 		transform: scaleY(-1);
 	}
+
 	.turn-left {
 		transform: rotate(90deg);
 	}
+
 	.turn-right {
 		transform: rotate(-90deg);
 	}
+
 	.inverted {
 		filter: invert(1);
 	}
+
 	.grayscale {
 		filter: grayscale(1);
 	}
@@ -391,5 +448,21 @@
 		100% {
 			transform: translateY(0) rotate(0deg) scale(1);
 		}
+	}
+
+	.image1,
+	.image2 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.image1 {
+		clip-path: polygon(0% 0%, 50% 0%, 55% 25%, 50% 50%, 55% 75%, 50% 100%, 0% 100%);
+	}
+
+	.image2 {
+		clip-path: polygon(50% 0%, 45% 25%, 50% 50%, 45% 75%, 50% 100%, 100% 100%, 100% 0%);
 	}
 </style>

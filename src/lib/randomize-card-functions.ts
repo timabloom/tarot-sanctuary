@@ -1,6 +1,7 @@
 import type { Cards } from "../types/cards";
 
 function shuffleDeck(
+	spreadSize: number,
 	deck: Cards[],
 	reverse: boolean,
 	turn: boolean,
@@ -9,7 +10,8 @@ function shuffleDeck(
 	animation: boolean,
 	arcanaMajor: boolean,
 	arcanaMinor: boolean,
-	duplicates: boolean
+	duplicates: boolean,
+	fused: boolean
 ): Cards[] {
 	const cleanDeck = deck.map((card) => {
 		return {
@@ -19,13 +21,15 @@ function shuffleDeck(
 			turnRight: false,
 			inverted: false,
 			grayscale: false,
-			animation: false
+			animation: false,
+			fused: false
 		};
 	});
 	const shuffledDeck: Cards[] = [...cleanDeck];
 	const duplicateDeck: Cards[] = [];
 	let id = 0;
 
+	// shuffle first time
 	for (let i = 0; i <= cleanDeck.length - 1; i++) {
 		// normal shuffle
 		const n = Math.floor(Math.random() * cleanDeck.length);
@@ -40,31 +44,58 @@ function shuffleDeck(
 			};
 			duplicateDeck.push(object);
 
-			// arcana options for duplicate deck
+			// options for duplicate deck
 			if (arcanaMajor && duplicateDeck[i].arcana === "major") {
-				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn);
+				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn, fused);
 			} else if (arcanaMinor && duplicateDeck[i].arcana === "minor") {
-				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn);
+				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn, fused);
 			} else if (!arcanaMajor && !arcanaMinor) {
-				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn);
+				optionsShuffle(duplicateDeck, i, animation, inverted, grayscale, reverse, turn, fused);
 			}
 		} else {
 			[shuffledDeck[i], shuffledDeck[n]] = [shuffledDeck[n], shuffledDeck[i]];
-
-			// arcana options for normal deck
-			if (arcanaMajor && shuffledDeck[i].arcana === "major") {
-				optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
-			} else if (arcanaMinor && shuffledDeck[i].arcana === "minor") {
-				optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
-			} else if (!arcanaMajor && !arcanaMinor) {
-				optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn);
-			}
 		}
 	}
-	if (duplicates) {
-		return duplicateDeck;
+
+	// options for normal deck
+	for (let i = 0; i <= shuffledDeck.length - 1; i++) {
+		if (arcanaMajor && shuffledDeck[i].arcana === "major") {
+			optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn, fused);
+		} else if (arcanaMinor && shuffledDeck[i].arcana === "minor") {
+			optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn, fused);
+		} else if (!arcanaMajor && !arcanaMinor) {
+			optionsShuffle(shuffledDeck, i, animation, inverted, grayscale, reverse, turn, fused);
+		}
 	}
-	return shuffledDeck;
+
+	// shuffle normal deck again
+	for (let i = 0; i <= shuffledDeck.length - 1; i++) {
+		// normal shuffle
+		const n = Math.floor(Math.random() * cleanDeck.length);
+		[shuffledDeck[i], shuffledDeck[n]] = [shuffledDeck[n], shuffledDeck[i]];
+	}
+
+	// add fused images
+	let addCard = spreadSize;
+	if (duplicates) {
+		for (let i = 0; i <= duplicateDeck.length - 1; i++) {
+			if (duplicateDeck[i].fused === true) {
+				duplicateDeck[i].image2 = duplicateDeck[addCard].image;
+				duplicateDeck[i].name2 = duplicateDeck[addCard].name;
+				addCard++;
+			}
+		}
+		return duplicateDeck;
+	} else {
+		for (let i = 0; i <= shuffledDeck.length - 1; i++) {
+			if (shuffledDeck[i].fused === true) {
+				shuffledDeck[i].image2 = shuffledDeck[addCard].image;
+				shuffledDeck[i].name2 = shuffledDeck[addCard].name;
+				addCard++;
+			}
+		}
+		return shuffledDeck;
+	}
 }
 
 function optionsShuffle(
@@ -74,60 +105,101 @@ function optionsShuffle(
 	inverted: boolean,
 	grayscale: boolean,
 	reverse: boolean,
-	turn: boolean
+	turn: boolean,
+	fused: boolean
 ) {
-	// animation shuffle
-	const a = Math.random();
-	if (animation === true && a <= 6 / 60) {
-		shuffledDeck[i].animation = true;
-		if (a <= 1 / 60) {
-			shuffledDeck[i].emotion = "loving";
-		} else if (a <= 2 / 60) {
-			shuffledDeck[i].emotion = "happy";
-		} else if (a <= 3 / 60) {
-			shuffledDeck[i].emotion = "excited";
-		} else if (a <= 4 / 60) {
-			shuffledDeck[i].emotion = "angry";
-		} else if (a <= 5 / 60) {
-			shuffledDeck[i].emotion = "afraid";
-		} else if (a <= 6 / 60) {
-			shuffledDeck[i].emotion = "sad";
-		}
-	}
+	const probabilities = {
+		animation: animation ? 0.1 : 0,
+		inverted: inverted ? 0.1 : 0,
+		grayscale: grayscale ? 0.1 : 0,
+		reverse: reverse ? 1 : 0,
+		turn: turn ? 0.2 : 0,
+		fused: fused ? 0.1 : 0
+	};
 
-	// colour shuffle
-	const c = Math.random();
-	if (inverted === true && grayscale === true) {
-		if (c <= 1 / 20 && inverted === true) {
-			shuffledDeck[i].inverted = true;
-		} else if (c <= 2 / 20 && grayscale === true) {
-			shuffledDeck[i].grayscale = true;
-		}
-	} else if (c <= 2 / 20 && inverted === true) {
+	const options = setOptions(probabilities);
+
+	if (options.reverse) {
+		shuffledDeck[i].reverse = true;
+	}
+	if (options.inverted) {
 		shuffledDeck[i].inverted = true;
-	} else if (c <= 2 / 20 && grayscale === true) {
+	}
+	if (options.grayscale) {
 		shuffledDeck[i].grayscale = true;
 	}
+	if (options.fused) {
+		shuffledDeck[i].fused = true;
+	}
 
-	// direction shuffle
-	const d = Math.random();
-	if (shuffledDeck[i].animation !== true) {
-		if (reverse === true && turn === true) {
-			if (d <= 8 / 20 && reverse === true) {
-				shuffledDeck[i].reverse = true;
-			} else if (d > 19 / 20 && turn === true) {
-				shuffledDeck[i].turnLeft = true;
-			} else if (d > 18 / 20 && turn === true) {
-				shuffledDeck[i].turnRight = true;
-			}
-		} else if (d <= 1 / 2 && reverse === true) {
-			shuffledDeck[i].reverse = true;
-		} else if (d <= 1 / 20 && turn === true) {
+	if (options.turn) {
+		const randomValue = Math.random();
+		if (randomValue <= 0.5) {
 			shuffledDeck[i].turnLeft = true;
-		} else if (d <= 2 / 20 && turn === true) {
+		} else {
 			shuffledDeck[i].turnRight = true;
 		}
 	}
+
+	if (options.animation) {
+		shuffledDeck[i].animation = options.animation;
+		const emotions = ["loving", "happy", "excited", "angry", "afraid", "sad"];
+		const index = Math.floor(Math.random() * emotions.length);
+		shuffledDeck[i].emotion = emotions[index];
+	}
+}
+
+type Options = {
+	animation: boolean;
+	inverted: boolean;
+	grayscale: boolean;
+	reverse: boolean;
+	turn: boolean;
+	fused: boolean;
+};
+
+type Probabilities = {
+	animation: number;
+	inverted: number;
+	grayscale: number;
+	reverse: number;
+	turn: number;
+	fused: number;
+};
+
+export function setOptions(probabilities: Probabilities): Options {
+	let options: Options = {
+		animation: false,
+		inverted: false,
+		grayscale: false,
+		reverse: false,
+		turn: false,
+		fused: false
+	};
+
+	// compute the total of provided probabilities
+	const totalProbability = Object.values(probabilities).reduce((acc, prob) => acc + prob, 0);
+
+	let scale = 1;
+	// if totalProbability exceeds 0.5, scale down probabilities proportionally
+	if (totalProbability > 0.5) {
+		scale = 0.5 / totalProbability;
+	}
+
+	let accumulatedProb = 0;
+	const randomValue = Math.random();
+	// one option selected based on chunked probabilities
+	for (let key in probabilities) {
+		if (probabilities[key as keyof Probabilities] > 0) {
+			accumulatedProb += probabilities[key as keyof Probabilities] * scale;
+			if (randomValue < accumulatedProb) {
+				options[key as keyof Options] = true;
+				break;
+			}
+		}
+	}
+
+	return options;
 }
 
 export function randomizeSpread(
@@ -140,9 +212,11 @@ export function randomizeSpread(
 	animation: boolean,
 	arcanaMajor: boolean,
 	arcanaMinor: boolean,
-	duplicates: boolean
+	duplicates: boolean,
+	fused: boolean
 ): Cards[] {
 	const shuffledDeck = shuffleDeck(
+		spreadSize,
 		deck,
 		reverse,
 		turn,
@@ -151,7 +225,8 @@ export function randomizeSpread(
 		animation,
 		arcanaMajor,
 		arcanaMinor,
-		duplicates
+		duplicates,
+		fused
 	);
 	return shuffledDeck.slice(0, spreadSize);
 }
