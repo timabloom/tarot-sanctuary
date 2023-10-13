@@ -10,9 +10,7 @@
 
 	onMount(() => {
 		initializeDarkMode();
-	});
 
-	onMount(() => {
 		window.addEventListener("scroll", updateMenuPadding);
 		return () => {
 			window.removeEventListener("scroll", updateMenuPadding);
@@ -96,86 +94,82 @@
 	<HamburgerMenu />
 </div>
 
-<div class="wrapper">
+<div class="content">
 	<slot />
-
-	<footer>
-		<div class="footer-container">
-			<div class="footer-logo-container">
-				<a href="/about"><img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
-				<p>A new fun way to explore the Tarot</p>
-			</div>
-
-			<div class="footer-attributions-container">
-				<h2 class="footer-h2">Tarot Deck Attributions:</h2>
-				<ul>
-					<li>
-						<p class="footer-attribution footer">
-							CBD Tarot de Marseille by Dr. Yoav Ben-Dov,
-							<a class="footer-attribution footer-link" href="http://cbdtarot.com"
-								>www.cbdtarot.com</a
-							>
-						</p>
-					</li>
-					<li>
-						<a class="footer-attribution footer-link" href="/attributions"
-							>Enhanced Rider-Waite Tarot by Timothy Magee</a
-						>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="footer-license-section">
-			<div class="footer-link-container">
-				<p>Copyright © 2023 Tarot Sanctuary</p>
-			</div>
-			<div class="footer-link-container">
-				<p class="footer-text">
-					Except where otherwise noted, content on this site is licensed under 
-					<a
-						class="footer-link"
-						rel="license"
-						href="https://creativecommons.org/licenses/by-sa/4.0/"
-						>CC BY-SA 4.0</a
-					>
-				</p>
-				<div class="footer-cc-image-container">
-					<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"
-						><img
-							class="footer-cc-image"
-							alt="Creative Commons License link"
-							style="border-width:0"
-							src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"
-						/></a
-					>
-				</div>
-			</div>
-			<div class="footer-link-container">
-				<p class="footer-text">
-					The source code for this website can be found on <a
-						class="footer-link"
-						target="_blank"
-						rel="noopener noreferrer"
-						href="https://github.com/timabloom/tarot-sanctuary">GitHub</a
-					>.
-				</p>
-				<div class="footer-github-image-container">
-					<a
-						target="_blank"
-						rel="noopener noreferrer"
-						href="https://github.com/timabloom/tarot-sanctuary"
-						><img
-							class="footer-github-image"
-							alt="Guthub project integration link"
-							src="/github-mark.svg"
-						/></a
-					>
-				</div>
-			</div>
-		</div>
-	</footer>
 </div>
+
+<footer>
+	<div class="footer-container">
+		<div class="footer-logo-container">
+			<a href="/about"><img alt="Tarot Sanctuary logo" src="/logo-light.svg" /></a>
+			<p>A new fun way to explore the Tarot</p>
+		</div>
+
+		<div class="footer-attributions-container">
+			<h2 class="footer-h2">Tarot Deck Attributions:</h2>
+			<ul>
+				<li>
+					<p class="footer-attribution footer">
+						CBD Tarot de Marseille by Dr. Yoav Ben-Dov,
+						<a class="footer-attribution footer-link" href="http://cbdtarot.com">www.cbdtarot.com</a
+						>
+					</p>
+				</li>
+				<li>
+					<a class="footer-attribution footer-link" href="/attributions"
+						>Enhanced Rider-Waite Tarot by Timothy Magee</a
+					>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-license-section">
+		<div class="footer-link-container">
+			<p>Copyright © 2023 Tarot Sanctuary</p>
+		</div>
+		<div class="footer-link-container">
+			<p class="footer-text">
+				Except where otherwise noted, content on this site is licensed under
+				<a class="footer-link" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"
+					>CC BY-SA 4.0</a
+				>
+			</p>
+			<div class="footer-cc-image-container">
+				<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"
+					><img
+						class="footer-cc-image"
+						alt="Creative Commons License link"
+						style="border-width:0"
+						src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"
+					/></a
+				>
+			</div>
+		</div>
+		<div class="footer-link-container">
+			<p class="footer-text">
+				The source code for this website can be found on <a
+					class="footer-link"
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://github.com/timabloom/tarot-sanctuary">GitHub</a
+				>.
+			</p>
+			<div class="footer-github-image-container">
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://github.com/timabloom/tarot-sanctuary"
+					><img
+						class="footer-github-image"
+						alt="Guthub project integration link"
+						src="/github-mark.svg"
+					/></a
+				>
+			</div>
+		</div>
+	</div>
+</footer>
 
 <style>
 	.mozilla-navbar-background {
@@ -198,18 +192,22 @@
 		padding: 0 3em;
 		color: #f1f1f1;
 	}
+
 	.nav-logo {
 		font-weight: normal;
 		font-family: "Cinzel", serif;
 	}
+
 	.nav-menu-container {
 		padding: 0;
 		padding-right: 3.5em;
 	}
+
 	.nav-menu-buttons {
 		text-decoration: none;
 		color: inherit;
 	}
+
 	.nav-menu-buttons:hover {
 		color: var(--secondary-accent-color);
 	}
@@ -236,11 +234,13 @@
 		display: flex;
 		align-items: center;
 	}
+
 	.theme-toggle-button-container {
 		text-align: center;
 		width: 7.5em;
 		padding-top: 0.2em;
 	}
+
 	.theme-toggle-button {
 		background: none;
 		border: none;
@@ -248,15 +248,18 @@
 		cursor: pointer;
 		padding: 0;
 	}
+
 	.theme-img-button {
 		background: none;
 		border: none;
 		cursor: pointer;
 		padding: 0;
 	}
+
 	.theme-img-button img {
 		display: block;
 	}
+
 	img:hover {
 		cursor: pointer;
 	}
@@ -270,10 +273,9 @@
 		color: #f1f1f1;
 		padding: 0;
 	}
-	.wrapper {
-		display: grid;
-		grid-template-rows: 1fr auto;
-		min-height: 100vh;
+
+	.content {
+		flex: 1;
 	}
 
 	footer {
@@ -322,15 +324,18 @@
 		border-top: 2px solid var(--main-accent-color);
 		border-radius: 2px;
 	}
+
 	.footer-link-container {
 		display: flex;
 		align-items: center;
 	}
+
 	.footer-link {
 		text-decoration: none;
 		color: inherit;
 		text-decoration: underline;
 	}
+
 	.footer-link:hover {
 		text-decoration: none;
 	}
@@ -347,27 +352,34 @@
 		margin-left: 0.1em;
 		margin-bottom: 0.3em;
 	}
+
 	.footer-github-image {
 		display: block;
 		filter: brightness(0) invert(1);
 		height: 24px;
 	}
+
 	@media screen and (max-width: 1500px) {
 		.hamburger-menu {
 			display: block;
 		}
+
 		.navbar-container {
 			display: none;
 		}
+
 		.footer-license-section {
 			justify-content: flex-start;
 		}
+
 		.footer-text {
 			display: none;
 		}
+
 		.footer-cc-image {
 			margin-left: 0.5em;
 		}
+
 		.footer-github-image {
 			margin-left: 0.5em;
 		}
