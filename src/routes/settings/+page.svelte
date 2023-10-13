@@ -20,7 +20,6 @@
 			reverse = settings.reverse;
 			turn = settings.turn;
 			fused = settings.fused;
-			console.log(settings);
 		});
 	});
 
