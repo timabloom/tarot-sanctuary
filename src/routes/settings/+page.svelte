@@ -4,15 +4,6 @@
 	// import stores
 	import { getSettings, updateSettings, settingsStore } from "../../stores/settingsStore";
 
-	type Probabilities = {
-		animation: number;
-		inverted: number;
-		grayscale: number;
-		reverse: number;
-		turn: number;
-		fused: number;
-	};
-
 	let animation = 1;
 	let inverted = 1;
 	let grayscale = 1;
@@ -29,6 +20,7 @@
 			reverse = settings.reverse;
 			turn = settings.turn;
 			fused = settings.fused;
+			console.log(settings);
 		});
 	});
 
@@ -57,19 +49,7 @@
 			fused: fused
 		};
 
-		// divide by 10 to get probabilities
-		let result: Probabilities = { ...probabilities };
-		for (let key in result) {
-			if (isKeyOfProbabilities(key)) {
-				result[key] = result[key] / 10;
-			}
-		}
-
-		function isKeyOfProbabilities(key: string): key is keyof Probabilities {
-			return key in result;
-		}
-
-		updateSettings(result);
+		updateSettings(probabilities);
 	}
 </script>
 

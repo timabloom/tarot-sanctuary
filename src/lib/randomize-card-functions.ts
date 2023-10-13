@@ -133,13 +133,19 @@ function optionsShuffle(
 		fused: fused ? 0.1 : 0
 	};
 
-	settingsStore.subscribe((newProbabilities) => {
-		probabilities.animation = animation ? newProbabilities.animation : 0;
-		probabilities.inverted = inverted ? newProbabilities.inverted : 0;
-		probabilities.grayscale = grayscale ? newProbabilities.grayscale : 0;
-		probabilities.reverse = reverse ? newProbabilities.reverse : 0;
-		probabilities.turn = turn ? newProbabilities.turn : 0;
-		probabilities.fused = fused ? newProbabilities.fused : 0;
+	settingsStore.subscribe((userSettings) => {
+		// divide by 10 to get probabilities
+		let result: Probabilities = { ...userSettings };
+		for (let key in result) {
+			result[key] = result[key] / 10;
+		}
+
+		probabilities.animation = animation ? result.animation : 0;
+		probabilities.inverted = inverted ? result.inverted : 0;
+		probabilities.grayscale = grayscale ? result.grayscale : 0;
+		probabilities.reverse = reverse ? result.reverse : 0;
+		probabilities.turn = turn ? result.turn : 0;
+		probabilities.fused = fused ? result.fused : 0;
 	});
 
 	const options = setOptions(probabilities);
