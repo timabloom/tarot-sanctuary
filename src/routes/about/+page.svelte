@@ -57,9 +57,11 @@
 		margin-top: 2em;
 		margin-bottom: 1em;
 	}
+	
 	li {
 		margin-bottom: 1em;
 	}
+	
 	p {
 		margin: 2em 0;
 	}

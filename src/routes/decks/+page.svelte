@@ -64,23 +64,28 @@
 	header {
 		text-align: center;
 	}
+
 	h1 {
 		margin-top: 1.5em;
 	}
+
 	h2 {
 		font-size: 2em;
 		margin-top: 0.5em;
 		margin-bottom: 0.4em;
 		text-align: center;
 	}
+
 	.attribution-container {
 		text-align: center;
 	}
+
 	.options-container {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 1em;
 	}
+
 	.options-container div {
 		display: flex;
 		flex-direction: column;
@@ -88,12 +93,15 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	.options-container h1 {
 		margin-bottom: 0.5em;
 	}
+
 	label {
 		margin-bottom: 0.3em;
 	}
+
 	.cards-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -101,14 +109,17 @@
 		padding: 1em 3em 2em 3em;
 		gap: 1em;
 	}
+
 	.card {
 		max-width: 200px;
 		text-align: center;
 	}
+
 	.card img {
 		max-width: 100%;
 		border-radius: 5px;
 	}
+
 	.card h3 {
 		margin-top: 0.5em;
 	}
