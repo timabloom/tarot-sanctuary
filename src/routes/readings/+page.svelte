@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
+	// import sotres
+	import { getSettings } from "../../stores/settingsStore";
+
 	// import functions
 	import { randomizeSpread } from "../../lib/randomize-card-functions";
 
@@ -8,6 +13,10 @@
 
 	// import types
 	import type { Cards } from "../../types/cards";
+
+	onMount(() => {
+		getSettings();
+	});
 
 	let spread = 1;
 	let cards: Cards[] = marseilleCardBack;

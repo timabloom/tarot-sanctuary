@@ -1,5 +1,21 @@
 import type { Cards } from "../types/cards";
 
+// import store
+import { settingsStore } from "../stores/settingsStore";
+
+type Options = {
+	animation: boolean;
+	inverted: boolean;
+	grayscale: boolean;
+	reverse: boolean;
+	turn: boolean;
+	fused: boolean;
+};
+
+type Probabilities = {
+	[key: string]: number;
+};
+
 function shuffleDeck(
 	spreadSize: number,
 	deck: Cards[],
@@ -117,6 +133,15 @@ function optionsShuffle(
 		fused: fused ? 0.1 : 0
 	};
 
+	settingsStore.subscribe((newProbabilities) => {
+		probabilities.animation = animation ? newProbabilities.animation : 0;
+		probabilities.inverted = inverted ? newProbabilities.inverted : 0;
+		probabilities.grayscale = grayscale ? newProbabilities.grayscale : 0;
+		probabilities.reverse = reverse ? newProbabilities.reverse : 0;
+		probabilities.turn = turn ? newProbabilities.turn : 0;
+		probabilities.fused = fused ? newProbabilities.fused : 0;
+	});
+
 	const options = setOptions(probabilities);
 
 	if (options.reverse) {
@@ -148,24 +173,6 @@ function optionsShuffle(
 		shuffledDeck[i].emotion = emotions[index];
 	}
 }
-
-type Options = {
-	animation: boolean;
-	inverted: boolean;
-	grayscale: boolean;
-	reverse: boolean;
-	turn: boolean;
-	fused: boolean;
-};
-
-type Probabilities = {
-	animation: number;
-	inverted: number;
-	grayscale: number;
-	reverse: number;
-	turn: number;
-	fused: number;
-};
 
 export function setOptions(probabilities: Probabilities): Options {
 	let options: Options = {
