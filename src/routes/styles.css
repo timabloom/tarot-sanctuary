@@ -4,6 +4,7 @@
 	--secondary-bg-color: #f8f5ef;
 	--main-accent-color: #b89662;
 	--secondary-accent-color: #f2b632;
+	--main-font-color: black;
 
 	/* Dark mode variables */
 	--dark-main-bg-color-light: #1f1e1e;
@@ -30,6 +31,7 @@ body.dark-mode {
 	--main-bg-color-light: var(--dark-main-bg-color-light);
 	--main-bg-color-dark: var(--dark-main-bg-color-dark);
 	--secondary-bg-color: var(--dark-secondary-bg-color);
+	--main-font-color: #f1f1f1;
 	background-color: #363434;
 	color: #f1f1f1;
 }
