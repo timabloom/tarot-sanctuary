@@ -5,6 +5,10 @@ export interface Cards {
 	image: string;
 	image2?: string;
 	arcana?: string;
+	interpretation?: string;
+	reversedInterpretation?: string;
+	attribution?: string;
+	link?: string;
 	reverse?: boolean;
 	turnLeft?: boolean;
 	turnRight?: boolean;
