@@ -111,7 +111,7 @@
 				<li>
 					<p class="footer-attribution footer">
 						CBD Tarot de Marseille by Dr. Yoav Ben-Dov,
-						<a class="footer-attribution footer-link" href="http://cbdtarot.com">www.cbdtarot.com</a
+						<a class="footer-attribution footer-link" rel="noreferrer" href="http://cbdtarot.com">www.cbdtarot.com</a
 						>
 					</p>
 				</li>
