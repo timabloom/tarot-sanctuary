@@ -26,7 +26,7 @@
 			<p class="card-name">The Hermit</p>
 			<a class="read-more" href="/guidance">
 				<div class="card-container">
-					<img alt="The Hermit tarot card" src="/marseille-deck/a09.jpg" />
+					<img alt="The Hermit tarot card" src="/x-mas-animations/resize-the-hermit.webp" />
 				</div></a
 			>
 			<p><a class="read-more" href="/guidance">Read More</a></p>
@@ -37,7 +37,7 @@
 
 			<a class="read-more" href="/guidance">
 				<div class="card-container">
-					<img alt="The Temperance tarot card" src="/marseille-deck/a14.jpg" />
+					<img alt="The Temperance tarot card" src="/x-mas-animations/resize-temperance.webp" />
 				</div></a
 			>
 			<p><a class="read-more" href="/guidance">Read More</a></p>
@@ -47,7 +47,7 @@
 			<p class="card-name">The Tower</p>
 			<a class="read-more" href="/guidance">
 				<div class="card-container">
-					<img alt="The Tower tarot card" src="/marseille-deck/a16.jpg" />
+					<img alt="The Tower tarot card" src="/x-mas-animations/resize-the-tower.webp" />
 				</div></a
 			>
 			<p><a class="read-more" href="/guidance">Read More</a></p>
@@ -103,7 +103,7 @@
 		align-items: center;
 		padding: 1em 3em 2em 3em;
 		width: 230px;
-		height: 560px;
+		height: 620px;
 		background-color: var(--secondary-bg-color);
 		position: relative;
 	}
@@ -130,8 +130,8 @@
 	}
 	
 	.card-container {
-		width: 200px;
-		height: 378px;
+		width: 259px;
+		height: 432px;
 		overflow: hidden;
 		position: relative;
 		border: 2px solid black;
@@ -139,9 +139,7 @@
 	
 	.card-container img {
 		position: absolute;
-		top: -10%;
-		left: -6.4%;
-		transform: scale(0.8);
+		transform: scale(1);
 		transform-origin: top left;
 	}
 	
