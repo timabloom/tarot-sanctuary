@@ -219,7 +219,7 @@ export const riderWaiteSmithDeck: Cards[] = [
 		interpretation:
 			"Upright card interpretation: He symbolizes established strength, enterprise, effort, trade, commerce, discovery; those are his ships, bearing his merchandise, which are sailing over the sea. The card also signifies able co-operation in business, as if the successful merchant prince were looking from his side towards yours with a view to help you.",
 		reversedInterpretation:
-			"The end of troubles, suspension or cessation of adversity, toil and disappointment."
+			"Reversed card interpretation: The end of troubles, suspension or cessation of adversity, toil and disappointment."
 	},
 	{
 		name: "Four of Wands",
@@ -322,72 +322,127 @@ export const riderWaiteSmithDeck: Cards[] = [
 	{
 		name: "Ace of Pentacles",
 		image: "./rider-waite-smith-deck/36-ace-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Perfect contentment, felicity, ecstasy; also speedy intelligence; gold.",
+		reversedInterpretation:
+			"Reversed card interpretation: The evil side of wealth, bad intelligence; also great riches. In any case it shews prosperity, comfortable material conditions, but whether these are of advantage to the possessor will depend on whether the card is reversed or not."
 	},
 	{
 		name: "Two of Pentacles",
 		image: "./rider-waite-smith-deck/37-two-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: On the one hand it is represented as a card of gaiety, recreation and its connexions, which is the subject of the design; but it is read also as news and messages in writing, as obstacles, agitation, trouble, embroilment.",
+		reversedInterpretation:
+			"Reversed card interpretations: Enforced gaiety, simulated enjoyment, literal sense, handwriting, composition, letters of exchange."
 	},
 	{
 		name: "Three of Pentacles",
 		image: "./rider-waite-smith-deck/38-three-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Métier, trade, skilled labour; usually, however, regarded as a card of nobility, aristocracy, renown, glory.",
+		reversedInterpretation:
+			"Reversed card interpretation: Reversed card interpretation: Mediocrity, in work and otherwise, puerility, pettiness, weakness."
 	},
 	{
 		name: "Four of Pentacles",
 		image: "./rider-waite-smith-deck/39-four-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: The surety of possessions, cleaving to that which one has, gift, legacy, inheritance.",
+		reversedInterpretation: "Reversed card interpretation: Suspense, delay, opposition."
 	},
 	{
 		name: "Five of Pentacles",
 		image: "./rider-waite-smith-deck/40-five-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: The card foretells material trouble above all, whether in the form illustrated--that is, destitution--or otherwise. For some cartomancists, it is a card of love and lovers-wife, husband, friend, mistress; also concordance, affinities. These alternatives cannot be harmonized.",
+		reversedInterpretation:
+			"Reversed card interpretation: Disorder, chaos, ruin, discord, profligacy."
 	},
 	{
 		name: "Six of Pentacles",
 		image: "./rider-waite-smith-deck/41-six-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Presents, gifts, gratification another account says attention, vigilance now is the accepted time, present prosperity, etc.",
+		reversedInterpretation:
+			"Reversed card interpretation: Desire, cupidity, envy, jealousy, illusion."
 	},
 	{
 		name: "Seven of Pentacles",
 		image: "./rider-waite-smith-deck/42-seven-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: These are exceedingly contradictory; in the main, it is a card of money, business, barter; but one reading gives altercation, quarrels--and another innocence, ingenuity, purgation.",
+		reversedInterpretation:
+			"Reversed card interpretation: Cause for anxiety regarding money which it may be proposed to lend."
 	},
 	{
 		name: "Eight of Pentacles",
 		image: "./rider-waite-smith-deck/43-eight-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Work, employment, commission, craftsmanship, skill in craft and business, perhaps in the preparatory stage.",
+		reversedInterpretation:
+			"Reversed card interpretation: Voided ambition, vanity, cupidity, exaction, usury. It may also signify the possession of skill, in the sense of the ingenious mind turned to cunning and intrigue."
 	},
 	{
 		name: "Nine of Pentacles",
 		image: "./rider-waite-smith-deck/44-nine-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Prudence, safety, success, accomplishment, certitude, discernment.",
+		reversedInterpretation:
+			"Reversed card interpretation: Roguery, deception, voided project, bad faith."
 	},
 	{
 		name: "Ten of Pentacles",
 		image: "./rider-waite-smith-deck/45-ten-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Gain, riches; family matters, archives, extraction, the abode of a family.",
+		reversedInterpretation:
+			"Reversed card interpretation: Chance, fatality, loss, robbery, games of hazard; sometimes gift, dowry, pension."
 	},
 	{
 		name: "Page of Pentacles",
 		image: "./rider-waite-smith-deck/46-page-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Application, study, scholarship, reflection another reading says news, messages and the bringer thereof; also rule, management.",
+		reversedInterpretation:
+			"Reversed card interpretation: Prodigality, dissipation, liberality, luxury; unfavourable news."
 	},
 	{
 		name: "Knight of Pentacles",
 		image: "./rider-waite-smith-deck/47-knight-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Utility, serviceableness, interest, responsibility, rectitude-all on the normal and external plane.",
+		reversedInterpretation:
+			"Reversed card interpretation: inertia, idleness, repose of that kind, stagnation; also placidity, discouragement, carelessness."
 	},
 	{
 		name: "Queen of Pentacles",
 		image: "./rider-waite-smith-deck/48-queen-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Opulence, generosity, magnificence, security, liberty.",
+		reversedInterpretation:
+			"Reversed card interpretation: Evil, suspicion, suspense, fear, mistrust."
 	},
 	{
 		name: "King of Pentacles",
 		image: "./rider-waite-smith-deck/49-king-of-pentacles.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Valour, realizing intelligence, business and normal intellectual aptitude, sometimes mathematical gifts and attainments of this kind; success in these paths.",
+		reversedInterpretation:
+			"Reversed card interpretation: Vice, weakness, ugliness, perversity, corruption, peril."
 	},
 
 	{
@@ -404,7 +459,8 @@ export const riderWaiteSmithDeck: Cards[] = [
 		image: "./rider-waite-smith-deck/51-two-of-cups.webp",
 		arcana: "minor",
 		interpretation:
-			"Upright card interpretation: Love, passion, friendship, affinity, union, concord, sympathy, the interrelation of the sexes, and--as a suggestion apart from all offices of divination--that desire which is not in Nature, but by which Nature is sanctified."
+			"Upright card interpretation: Love, passion, friendship, affinity, union, concord, sympathy, the interrelation of the sexes, and--as a suggestion apart from all offices of divination--that desire which is not in Nature, but by which Nature is sanctified.",
+		reversedInterpretation: "Reversed card interpretation: The author did not address this aspect"
 	},
 	{
 		name: "Three of Cups",
@@ -516,72 +572,126 @@ export const riderWaiteSmithDeck: Cards[] = [
 	{
 		name: "Ace of Swords",
 		image: "./rider-waite-smith-deck/64-ace-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Triumph, the excessive degree in everything, conquest, triumph of force. It is a card of great force, in love as well as in hatred. The crown may carry a much higher significance than comes usually within the sphere of fortune-telling.",
+		reversedInterpretation:
+			"Reversed card interpretation: The same, but the results are disastrous; another account says--conception, childbirth, augmentation, multiplicity."
 	},
 	{
 		name: "Two of Swords",
 		image: "./rider-waite-smith-deck/65-two-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Conformity and the equipoise which it suggests, courage, friendship, concord in a state of arms; another reading gives tenderness, affection, intimacy. The suggestion of harmony and other favourable readings must be considered in a qualified manner, as Swords generally are not symbolical of beneficent forces in human affairs.",
+		reversedInterpretation:
+			"Reversed card interpretation: Imposture, falsehood, duplicity, disloyalty."
 	},
 	{
 		name: "Three of Swords",
 		image: "./rider-waite-smith-deck/66-three-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Removal, absence, delay, division, rupture, dispersion, and all that the design signifies naturally, being too simple and obvious to call for specific enumeration.",
+		reversedInterpretation:
+			"Reversed card interpretation: Mental alienation, error, loss, distraction, disorder, confusion."
 	},
 	{
 		name: "Four of Swords",
 		image: "./rider-waite-smith-deck/67-four-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Vigilance, retreat, solitude, hermit's repose, exile, tomb and coffin. It is these last that have suggested the design.",
+		reversedInterpretation:
+			"Reversed card interpretation: Wise administration, circumspection, economy, avarice, precaution, testament."
 	},
 	{
 		name: "Five of Swords",
 		image: "./rider-waite-smith-deck/68-five-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Degradation, destruction, revocation, infamy, dishonour, loss, with the variants and analogues of these.",
+		reversedInterpretation: "Reversed card interpretation: The same; burial and obsequies."
 	},
 	{
 		name: "Six of Swords",
 		image: "./rider-waite-smith-deck/69-six-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: journey by water, route, way, envoy, commissionary, expedient.",
+		reversedInterpretation:
+			"Reversed card interpretation: Declaration, confession, publicity; one account says that it is a proposal of love."
 	},
 	{
 		name: "Seven of Swords",
 		image: "./rider-waite-smith-deck/70-seven-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Design, attempt, wish, hope, confidence; also quarrelling, a plan that may fail, annoyance. The design is uncertain in its import, because the significations are widely at variance with each other.",
+		reversedInterpretation:
+			"Reversed card interpretation: Good advice, counsel, instruction, slander, babbling."
 	},
 	{
 		name: "Eight of Swords",
 		image: "./rider-waite-smith-deck/71-eight-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Bad news, violent chagrin, crisis, censure, power in trammels, conflict, calumny; also sickness.",
+		reversedInterpretation:
+			"Reversed card interpretation: Disquiet, difficulty, opposition, accident, treachery; what is unforeseen; fatality."
 	},
 	{
 		name: "Nine of Swords",
 		image: "./rider-waite-smith-deck/72-nine-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Death, failure, miscarriage, delay, deception, disappointment, despair.",
+		reversedInterpretation:
+			"Reversed card interpretation: Imprisonment, suspicion, doubt, reasonable fear, shame."
 	},
 	{
 		name: "Ten of Swords",
 		image: "./rider-waite-smith-deck/73-ten-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Whatsoever is intimated by the design; also pain, affliction, tears, sadness, desolation. It is not especially a card of violent death.",
+		reversedInterpretation:
+			"Reversed card interpretation: Advantage, profit, success, favour, but none of these are permanent; also power and authority."
 	},
 	{
 		name: "Page of Swords",
 		image: "./rider-waite-smith-deck/74-page-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Authority, overseeing, secret service, vigilance, spying, examination, and the qualities thereto belonging.",
+		reversedInterpretation:
+			"Reversed card interpretation: More evil side of these qualities; what is unforeseen, unprepared state; sickness is also intimated."
 	},
 	{
 		name: "Knight of Swords",
 		image: "./rider-waite-smith-deck/75-knight-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Skill, bravery, capacity, defence, address, enmity, wrath, war, destruction, opposition, resistance, ruin. There is therefore a sense in which the card signifies death, but it carries this meaning only in its proximity to other cards of fatality.",
+		reversedInterpretation: "Reversed card interpretation: Imprudence, incapacity, extravagance."
 	},
 	{
 		name: "Queen of Swords",
 		image: "./rider-waite-smith-deck/76-queen-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Widowhood, female sadness and embarrassment, absence, sterility, mourning, privation, separation.",
+		reversedInterpretation:
+			"Reversed card interpretation: Malice, bigotry, artifice, prudery, bale, deceit."
 	},
 	{
 		name: "King of Swords",
 		image: "./rider-waite-smith-deck/77-king-of-swords.webp",
-		arcana: "minor"
+		arcana: "minor",
+		interpretation:
+			"Upright card interpretation: Whatsoever arises out of the idea of judgment and all its connexions-power, command, authority, militant intelligence, law, offices of the crown, and so forth.",
+		reversedInterpretation:
+			"Reversed card interpretation: Cruelty, perversity, barbarity, perfidy, evil intention."
 	}
 ];
 
