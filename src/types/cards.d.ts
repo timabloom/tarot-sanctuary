@@ -9,6 +9,7 @@ export interface Cards {
 	reversedInterpretation?: string;
 	attribution?: string;
 	link?: string;
+	author?: string;
 	reverse?: boolean;
 	turnLeft?: boolean;
 	turnRight?: boolean;

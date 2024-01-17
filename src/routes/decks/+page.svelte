@@ -88,6 +88,7 @@
 		<h3>{selectedCard.name}</h3>
 		<p>{selectedCard.interpretation}</p>
 		<p>{selectedCard.reversedInterpretation}</p>
+		<p>{selectedCard.author}</p>
 	</div>
 
 	<div class="cards-container">
