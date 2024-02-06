@@ -5,6 +5,7 @@ export interface Cards {
 	image: string;
 	image2?: string;
 	arcana?: string;
+	description?: string;
 	interpretation?: string;
 	reversedInterpretation?: string;
 	attribution?: string;

@@ -86,6 +86,9 @@
 
 	<div class="card-details-container">
 		<h3>{selectedCard.name}</h3>
+		{#if selectedCard.description}
+			<p>{selectedCard.description}</p>
+		{/if}
 		<p>{selectedCard.interpretation}</p>
 		<p>{selectedCard.reversedInterpretation}</p>
 		<p>{selectedCard.author}</p>
@@ -177,6 +180,7 @@
 	p {
 		margin-left: 10%;
 		margin-right: 10%;
+		white-space: pre-line;
 	}
 
 	.arrow {
