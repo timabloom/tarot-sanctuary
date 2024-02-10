@@ -786,7 +786,7 @@ export const riderWaiteSmithDeck: Cards[] = [
 		name: "Three of Swords",
 		image: "./rider-waite-smith-deck/66-three-of-swords.webp",
 		arcana: "minor",
-		description: "Three swords piercing a heart; cloud and rain behind.",
+		description: "Description: Three swords piercing a heart; cloud and rain behind.",
 		interpretation:
 			"Upright card interpretation: Removal, absence, delay, division, rupture, dispersion, and all that the design signifies naturally, being too simple and obvious to call for specific enumeration.",
 		reversedInterpretation:
